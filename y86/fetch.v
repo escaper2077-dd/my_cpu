@@ -1,6 +1,6 @@
 `timescale 1ps/1ps
 
-module fetchC(
+module fetch(
     //input signal
     input wire [63:0] PC_i,
     
@@ -14,6 +14,20 @@ module fetchC(
     output wire instr_valid_o,
     output wire imem_error_o
 );
+
+    // Y86操作码定义 (icode - 指令码的高4位)
+    localparam NOP    = 4'h0;
+    localparam HALT   = 4'h1;
+    localparam RRMOVL = 4'h2;
+    localparam IRMOVL = 4'h3;
+    localparam RMMOVL = 4'h4;
+    localparam MRMOVL = 4'h5;
+    localparam ALU    = 4'h6;  // ADDL, SUBL, ANDL, XORL
+    localparam JXX    = 4'h7;  // JMPL, JLE, JL, JE, JNE, JGE, JG
+    localparam CALL   = 4'h8;
+    localparam RET    = 4'h9;
+    localparam PUSHL  = 4'hA;
+    localparam POPL   = 4'hB;
 
     // 指令内存 - 1024字节（0-1023）
     reg [7:0] instr_mem[0:1023];
@@ -40,15 +54,17 @@ module fetchC(
     assign instr_valid_o = (icode_o < 4'hC);
     
     // Instruction set - 判断指令是否需要寄存器字节
-    assign need_regids = (icode_o == 4'h2) || (icode_o == 4'h3) ||
-                         (icode_o == 4'h4) || (icode_o == 4'h5) ||
-                         (icode_o == 4'h6) || (icode_o == 4'hA) ||
-                         (icode_o == 4'hB);
+    // 需要regids的指令: RRMOVL, IRMOVL, RMMOVL, MRMOVL, ALU, PUSHL, POPL
+    assign need_regids = (icode_o == RRMOVL) || (icode_o == IRMOVL) ||
+                         (icode_o == RMMOVL) || (icode_o == MRMOVL) ||
+                         (icode_o == ALU) || (icode_o == PUSHL) ||
+                         (icode_o == POPL);
     
     // Instruction set - 判断指令是否需要8字节常数
-    assign need_valC = (icode_o == 4'h3) || (icode_o == 4'h4) ||
-                       (icode_o == 4'h5) || (icode_o == 4'h7) ||
-                       (icode_o == 4'h8);
+    // 需要valC的指令: IRMOVL, RMMOVL, MRMOVL, JXX, CALL
+    assign need_valC = (icode_o == IRMOVL) || (icode_o == RMMOVL) ||
+                       (icode_o == MRMOVL) || (icode_o == JXX) ||
+                       (icode_o == CALL);
     
     // Extract rA and rB conditionally - 从第二个字节（PC+1）取出
     assign rA_o = need_regids ? instr_mem[PC_i + 1][7:4] : 4'hF;
@@ -72,7 +88,7 @@ module fetchC(
     // 初始化指令内存（可选示例）
     //initial begin
     //    // 示例：可以在这里加载指令
-    //    // instr_mem[0] = 8'h00;  // NOP
+    //    // instr_mem[0] = NOP;  // NOP指令
     //end
 
 endmodule

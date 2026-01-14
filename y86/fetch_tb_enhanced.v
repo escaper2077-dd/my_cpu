@@ -14,7 +14,7 @@ module fetch_tb_enhanced();
     wire        imem_error_o;
 
     // 实例化被测试模块
-    fetchC fetch_inst (
+    fetch fetch_inst (
         .PC_i(PC_i),
         .icode_o(icode_o),
         .ifun_o(ifun_o),
