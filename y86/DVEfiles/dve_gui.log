@@ -1,0 +1,70 @@
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jan 14 21:47 2026
+VCD+ Writer O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+The file '/home/escaper/my_cpu/y86/inter.vpd' was opened successfully.
+Y86-64 Fetch Stage Testbench
+================================================================================
+PC      | icode | ifun | rA   | rB   | valC             | valP     | valid | error
+--------|-------|------|------|------|------------------|----------|-------|------
+00000000 | 0    | 0   | f   | f   | abcdeff530342010 | 00000001 | 1     | 0
+00000001 | 1    | 0   | f   | f   | 89abcdeff5303420 | 00000002 | 1     | 0
+00000002 | 2    | 0   | 3   | 4   | 456789abcdeff530 | 00000004 | 1     | 0
+00000004 | 3    | 0   | f   | 5   | 0123456789abcdef | 0000000e | 1     | 0
+0000000e | 4    | 0   | 1   | 2   | 0000000000000100 | 00000018 | 1     | 0
+00000018 | 6    | 1   | 5   | 6   | xxxxxxxxxxxxxxe0 | 0000001a | 1     | 0
+0000001a | e    | 0   | f   | f   | xxxxxxxxxxxxxxxx | 0000001b | 0     | 0
+00000400 | x    | x   | x   | x   | xxxxxxxxxxxxxxxx | xxxxxxxxxxxxxxxx | x     | 1
+================================================================================
+Simulation finished!
+$finish called from file "fetch_tb.v", line 130.
+$finish at simulation time                   80
+Simulation complete, time is 80 ps.
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jan 14 21:47 2026
+VCD+ Writer O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+The file '/home/escaper/my_cpu/y86/inter.vpd' was opened successfully.
+Y86-64 Fetch Stage Testbench
+================================================================================
+PC      | icode | ifun | rA   | rB   | valC             | valP     | valid | error
+--------|-------|------|------|------|------------------|----------|-------|------
+00000000 | 0    | 0   | f   | f   | abcdeff530342010 | 00000001 | 1     | 0
+00000001 | 1    | 0   | f   | f   | 89abcdeff5303420 | 00000002 | 1     | 0
+00000002 | 2    | 0   | 3   | 4   | 456789abcdeff530 | 00000004 | 1     | 0
+00000004 | 3    | 0   | f   | 5   | 0123456789abcdef | 0000000e | 1     | 0
+0000000e | 4    | 0   | 1   | 2   | 0000000000000100 | 00000018 | 1     | 0
+00000018 | 6    | 1   | 5   | 6   | xxxxxxxxxxxxxxe0 | 0000001a | 1     | 0
+0000001a | e    | 0   | f   | f   | xxxxxxxxxxxxxxxx | 0000001b | 0     | 0
+00000400 | x    | x   | x   | x   | xxxxxxxxxxxxxxxx | xxxxxxxxxxxxxxxx | x     | 1
+================================================================================
+Simulation finished!
+$finish called from file "fetch_tb.v", line 130.
+$finish at simulation time                   80
+Simulation complete, time is 80 ps.
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jan 14 21:55 2026
+VCD+ Writer O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
+The file '/home/escaper/my_cpu/y86/inter.vpd' was opened successfully.
+Y86-64 Fetch Stage Testbench
+================================================================================
+PC      | icode | ifun | rA   | rB   | valC             | valP     | valid | error
+--------|-------|------|------|------|------------------|----------|-------|------
+00000000 | 0    | 0   | f   | f   | abcdeff530342010 | 00000001 | 1     | 0
+00000001 | 1    | 0   | f   | f   | 89abcdeff5303420 | 00000002 | 1     | 0
+00000002 | 2    | 0   | 3   | 4   | 456789abcdeff530 | 00000004 | 1     | 0
+00000004 | 3    | 0   | f   | 5   | 0123456789abcdef | 0000000e | 1     | 0
+0000000e | 4    | 0   | 1   | 2   | 0000000000000100 | 00000018 | 1     | 0
+00000018 | 6    | 1   | 5   | 6   | xxxxxxxxxxxxxxe0 | 0000001a | 1     | 0
+0000001a | e    | 0   | f   | f   | xxxxxxxxxxxxxxxx | 0000001b | 0     | 0
+00000400 | x    | x   | x   | x   | xxxxxxxxxxxxxxxx | xxxxxxxxxxxxxxxx | x     | 1
+================================================================================
+Simulation finished!
+$finish called from file "fetch_tb.v", line 130.
+$finish at simulation time                   80
+Simulation complete, time is 80 ps.
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 80 ps
+CPU Time:      0.050 seconds;       Data structure size:   0.0Mb
+Wed Jan 14 22:00:31 2026

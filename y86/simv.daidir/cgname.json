@@ -1,15 +1,15 @@
 {
-    "...MASTER...": [
-        "SIM",
-        "amcQw",
-        "module",
-        3
-    ],
     "std": [
         "std",
         "reYIK",
         "module",
         1
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module",
+        3
     ],
     "fetch_tb": [
         "fetch_tb",
