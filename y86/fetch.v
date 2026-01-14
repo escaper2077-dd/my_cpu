@@ -3,7 +3,7 @@ module fetch(
     input [31:0] PC,
     input [31:0] mem_data,  // 从PC地址读取的32位内存数据
     output reg [31:0] next_PC,
-    output reg [7:0] instr_bytes [0:5],  // 指令字节数组，最多6字节
+    output reg [47:0] instr_bytes,  // 指令字节，6*8=48位
     output reg [2:0] instr_len  // 指令长度（字节数）
 );
 
@@ -31,15 +31,11 @@ module fetch(
     localparam POPL = 8'hB0;
 
     always @(posedge clk) begin
-        // 提取指令字节
-        instr_bytes[0] = mem_data[7:0];    // 操作码
-        instr_bytes[1] = mem_data[15:8];   // 寄存器字节（如果有）
-        instr_bytes[2] = mem_data[23:16];  // 立即数字节1
-        instr_bytes[3] = mem_data[31:24];  // 立即数字节2
-        // 注意：对于超过4字节的指令，需要额外的内存读取，这里简化假设指令不超过4字节或使用多个周期
+        // 提取指令字节（小端序）
+        instr_bytes = {16'b0, mem_data[31:24], mem_data[23:16], mem_data[15:8], mem_data[7:0]};  // 填充前2字节为0，简化
 
         // 确定指令长度基于操作码
-        case (instr_bytes[0])
+        case (mem_data[7:0])  // 操作码
             NOP, HALT, RET: instr_len = 3'd1;
             RRMOVL, ADDL, SUBL, ANDL, XORL, PUSHL, POPL: instr_len = 3'd2;
             IRMOVL, RMMOVL, MRMOVL: instr_len = 3'd6;  // op + reg + 4字节立即数
