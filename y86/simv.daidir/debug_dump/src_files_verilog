@@ -1,3 +1,4 @@
-/home/escaper/my_cpu/y86/cpu_tb.v
 /home/escaper/my_cpu/y86/decode.v
+/home/escaper/my_cpu/y86/execute.v
+/home/escaper/my_cpu/y86/execute_tb.v
 /home/escaper/my_cpu/y86/fetch.v

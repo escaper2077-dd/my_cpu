@@ -1,19 +1,31 @@
 {
+    "execute_tb": [
+        "execute_tb",
+        "Lh6NV",
+        "module",
+        4
+    ],
     "std": [
         "std",
         "reYIK",
         "module",
         1
     ],
-    "cpu_tb": [
-        "cpu_tb",
-        "mvuYT",
-        "module",
-        2
-    ],
     "...MASTER...": [
         "SIM",
         "amcQw",
+        "module",
+        5
+    ],
+    "fetch": [
+        "fetch",
+        "Qk6Wn",
+        "module",
+        2
+    ],
+    "decode": [
+        "decode",
+        "dVBRC",
         "module",
         3
     ]

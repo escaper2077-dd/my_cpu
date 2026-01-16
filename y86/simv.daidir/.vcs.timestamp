@@ -87,8 +87,8 @@ NOVAS_INST_DIR=/home/escaper/vcs/verdi/verdi/Verdi_O-2018.09-SP2
 NOVAS_HOME=/home/escaper/vcs/verdi/verdi/Verdi_O-2018.09-SP2
 NEMU_HOME=/home/escaper/ysyx-workbench/nemu
 MFLAGS=
-MAKE_TERMOUT=/dev/pts/3
-MAKE_TERMERR=/dev/pts/3
+MAKE_TERMOUT=/dev/pts/2
+MAKE_TERMERR=/dev/pts/2
 MAKELEVEL=1
 MAKEFLAGS=
 LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
@@ -110,7 +110,7 @@ GTK_MODULES=gail:atk-bridge
 GTK_IM_MODULE=fcitx
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
 GNOME_TERMINAL_SERVICE=:1.159
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/89d58eb6_7172_49a0_9214_b64f994f58b1
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/6d7c2e60_56ac_43c7_ba65_2fa26d1a9736
 GNOME_SHELL_SESSION_MODE=ubuntu
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
 GDM_LANG=en_US
@@ -124,11 +124,12 @@ CLUTTER_IM_MODULE=fcitx
 AM_HOME=/home/escaper/ysyx-workbench/abstract-machine
 ALL_PROXY=socks://127.0.0.1:8891/
 0
-6
-1768561303 cpu_tb.v
-1768561303 decode.v
+7
+1768565653 execute_tb.v
+1768565653 execute.v
+1768562680 decode.v
 1768553891 fetch.v
-1768555166 filelist.f
+1768565811 filelist.f
 1550753332 /home/escaper/vcs/verdi/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/verdi.tab
 1551421246 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/vcsdp_lite.tab
 4
@@ -136,5 +137,5 @@ ALL_PROXY=socks://127.0.0.1:8891/
 1551421792 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/liberrorinf.so
 1551421768 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libsnpsmalloc.so
 1551421789 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libvfs.so
-1768561321 simv.daidir
+1768565820 simv.daidir
 -1 partitionlib

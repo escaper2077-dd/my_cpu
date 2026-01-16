@@ -1,3 +1,4 @@
-cpu_tb.v
 decode.v
+execute.v
+execute_tb.v
 fetch.v

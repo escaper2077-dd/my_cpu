@@ -3,4 +3,6 @@ fetch.v
 //fetch_tb.v
 decode.v
 //decode_tb.v
-cpu_tb.v
+execute.v
+execute_tb.v
+//cpu_tb.v

@@ -74,14 +74,14 @@ module execute(
     // 在时钟上升沿时，根据当前ALU运算更新条件码
     always @(posedge clk_i or negedge rst_n_i) begin
         if (rst_n_i == 1'b0) begin
-            ZF <= 1'b0;
+            ZF <= 1'b1;
             SF <= 1'b0;
             OF <= 1'b0;
         end
         else if (icode_i == ALU) begin
             // 对ALU操作设置条件码
-            ZF <= (alu_out == 64'b0) ? 1'b1 : 1'b0;  // Zero Flag
-            SF <= alu_out[63];                       // Sign Flag (MSB)
+            ZF <= (alu_out == 64'b0) ? 1'b1 : 1'b0;
+            SF <= alu_out[63];
             
             // Overflow Flag - 检查加法或减法的溢出
             if (ifun_i == ALU_ADDL) begin
