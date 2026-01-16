@@ -64,7 +64,7 @@ module fetch_tb();
         fetch_inst.instr_mem[22] = 8'h00;     // valC byte 6
         fetch_inst.instr_mem[23] = 8'h00;     // valC byte 7
         
-        // 测试用例6: OPQ指令 (icode=0x6, ifun=0x1, rA=5, rB=6) - 2字节
+        // 测试用例6: ALU指令 (icode=0x6, ifun=0x1, rA=5, rB=6) - 2字节
         fetch_inst.instr_mem[24] = 8'h61;     // icode=6, ifun=1
         fetch_inst.instr_mem[25] = 8'h56;     // rA=5, rB=6
         
@@ -107,7 +107,7 @@ module fetch_tb();
         $display("%08h | %01h    | %01h   | %01h   | %01h   | %016h | %08h | %d     | %d",
                  PC_i, icode_o, ifun_o, rA_o, rB_o, valC_o, valP_o, instr_valid_o, imem_error_o);
 
-        // 测试6: OPQ指令 (2字节)
+        // 测试6: ALU指令 (2字节)
         PC_i = 64'd24;
         #10;
         $display("%08h | %01h    | %01h   | %01h   | %01h   | %016h | %08h | %d     | %d",

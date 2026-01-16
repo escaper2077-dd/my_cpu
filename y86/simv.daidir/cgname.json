@@ -1,20 +1,26 @@
 {
-    "fetch_tb": [
-        "fetch_tb",
-        "SQBqg",
-        "module",
-        2
-    ],
     "std": [
         "std",
         "reYIK",
         "module",
         1
     ],
+    "decode_tb": [
+        "decode_tb",
+        "LLBxF",
+        "module",
+        3
+    ],
+    "fetch": [
+        "fetch",
+        "Qk6Wn",
+        "module",
+        2
+    ],
     "...MASTER...": [
         "SIM",
         "amcQw",
         "module",
-        3
+        4
     ]
 }

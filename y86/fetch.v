@@ -29,19 +29,38 @@ module fetch(
     localparam PUSHL  = 4'hA;
     localparam POPL   = 4'hB;
 
+    // RRMOVL func码定义 (条件移动)
+    localparam RRMOV_RRMOVL = 4'h0;  // 无条件移动
+    localparam RRMOV_CMOVLE = 4'h1;  // 小于等于时移动
+    localparam RRMOV_CMOVL  = 4'h2;  // 小于时移动
+    localparam RRMOV_CMOVE  = 4'h3;  // 等于时移动
+    localparam RRMOV_CMOVNE = 4'h4;  // 不等于时移动
+    localparam RRMOV_CMOVGE = 4'h5;  // 大于等于时移动
+    localparam RRMOV_CMOVG  = 4'h6;  // 大于时移动
+
+    // ALU func码定义
+    localparam ALU_ADDL = 4'h0;
+    localparam ALU_SUBL = 4'h1;
+    localparam ALU_ANDL = 4'h2;
+    localparam ALU_XORL = 4'h3;
+    
+    // JXX func码定义
+    localparam JXX_JMP  = 4'h0;
+    localparam JXX_JLE  = 4'h1;
+    localparam JXX_JL   = 4'h2;
+    localparam JXX_JE   = 4'h3;
+    localparam JXX_JNE  = 4'h4;
+    localparam JXX_JGE  = 4'h5;
+    localparam JXX_JG   = 4'h6;
+
     // 指令内存 - 1024字节（0-1023）
     reg [7:0] instr_mem[0:1023];
     
     // 内部电平信号
-    //wire [3:0] icode_o_internal;
-    //wire [3:0] ifun_o_internal;
     wire [79:0] instr;
     wire need_regids;
     wire need_valC;
     
-    // Split current instruction - 从PC取出第一个字节
-    //assign icode_o_internal = instr_mem[PC_i][7:4];
-    //assign ifun_o_internal = instr_mem[PC_i][3:0];
     assign instr = {instr_mem[PC_i+9], instr_mem[PC_i+8], instr_mem[PC_i+7], instr_mem[PC_i+6],
                     instr_mem[PC_i+5], instr_mem[PC_i+4], instr_mem[PC_i+3], instr_mem[PC_i+2],
                     instr_mem[PC_i+1], instr_mem[PC_i]};
@@ -51,7 +70,18 @@ module fetch(
     assign ifun_o = instr[3:0];
     
     // Check instruction code if > C, error
-    assign instr_valid_o = (icode_o < 4'hC);
+    // 同时检查ifun的有效性：
+    // - RRMOVL (0x2): ifun必须为 0-6 (条件移动)
+    // - ALU (0x6): ifun必须为 0-3
+    // - JXX (0x7): ifun必须为 0-6
+    // - 其他指令: ifun必须为 0
+    wire valid_ifun;
+    assign valid_ifun = ((icode_o == RRMOVL) && (ifun_o >= 4'h0 && ifun_o <= 4'h6)) ||  // RRMOVL: 0-6
+                        ((icode_o == ALU) && (ifun_o >= 4'h0 && ifun_o <= 4'h3)) ||    // ALU: 0-3
+                        ((icode_o == JXX) && (ifun_o >= 4'h0 && ifun_o <= 4'h6)) ||    // JXX: 0-6
+                        ((icode_o != RRMOVL) && (icode_o != ALU) && (icode_o != JXX) && (ifun_o == 4'h0));  // 其他指令: func=0
+    
+    assign instr_valid_o = (icode_o < 4'hC) && valid_ifun;
     
     // Instruction set - 判断指令是否需要寄存器字节
     // 需要regids的指令: RRMOVL, IRMOVL, RMMOVL, MRMOVL, ALU, PUSHL, POPL
@@ -82,13 +112,5 @@ module fetch(
     // Check memory error
     assign imem_error_o = (PC_i > 1023);
     
-    // Output assignments
-    //assign icode_o = icode_o_internal;
-    //assign ifun_o = ifun_o_internal;    
-    // 初始化指令内存（可选示例）
-    //initial begin
-    //    // 示例：可以在这里加载指令
-    //    // instr_mem[0] = NOP;  // NOP指令
-    //end
 
 endmodule
