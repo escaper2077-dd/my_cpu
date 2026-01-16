@@ -99,7 +99,8 @@ module decode(
             end
             PUSHL: begin
                 srcA = rA_i;
-                srcB = (rB_i == 4'hF) ? 4'h4 : rB_i;  // rB=F时理解为%rsp(4)
+                //srcB = (rB_i == 4'hF) ? 4'h4 : rB_i;  // rB=F时理解为%rsp(4)
+                srcB = 4'h4;                           // srcB总是%rsp(4)，因为PUSHL入栈
             end
             POPL: begin
                 srcA = rA_i;                           // rA是目标寄存器
