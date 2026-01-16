@@ -5,15 +5,9 @@
         "module",
         1
     ],
-    "decode_tb": [
-        "decode_tb",
-        "LLBxF",
-        "module",
-        3
-    ],
-    "fetch": [
-        "fetch",
-        "Qk6Wn",
+    "cpu_tb": [
+        "cpu_tb",
+        "mvuYT",
         "module",
         2
     ],
@@ -21,6 +15,6 @@
         "SIM",
         "amcQw",
         "module",
-        4
+        3
     ]
 }

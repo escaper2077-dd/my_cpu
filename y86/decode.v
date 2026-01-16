@@ -47,23 +47,70 @@ module decode(
         regfile[14] = 64'd14;    // %r14
     end
 
-    // 根据指令类型读取寄存器
-    // srcA的选择逻辑 - 根据指令类型选择sourceA寄存器
-    // CALL/RET/POPL: %rsp (4)
-    // PUSHL: rA_i
-    // RRMOVL/RMMOVL/ALU: rA_i
-    wire [3:0] srcA;
-    assign srcA = ((icode_i == CALL) || (icode_i == RET) || (icode_i == POPL)) ? 4'h4 :  // %rsp
-                  ((icode_i == RRMOVL) || (icode_i == RMMOVL) || (icode_i == ALU) || (icode_i == PUSHL)) ? rA_i :
-                  4'hF;  // 不需要读取寄存器
-
-    // srcB的选择逻辑 - 根据指令类型选择sourceB寄存器
-    // ALU/RRMOVL: rB_i (两个寄存器操作数)
-    // CALL/RET/MRMOVL/RMMOVL/PUSHL/POPL: %rsp (4) (栈或内存操作)
-    wire [3:0] srcB;
-    assign srcB = ((icode_i == CALL) || (icode_i == RET) || (icode_i == MRMOVL) || (icode_i == RMMOVL) || (icode_i == PUSHL) || (icode_i == POPL)) ? 4'h4 :  // %rsp
-                  ((icode_i == RRMOVL) || (icode_i == ALU)) ? rB_i :
-                  4'hF;  // 不需要读取寄存器
+    // 根据指令类型读取寄存器 - 使用case语句选择srcA和srcB
+    // srcA/srcB的选择逻辑：
+    // - 需要regids且用到该源操作数的指令读实际寄存器
+    // - PUSHL/POPL中F被特殊对待为%rsp(4)
+    // - 不需要的寄存器设为F（无效）
+    reg [3:0] srcA;
+    reg [3:0] srcB;
+    
+    always @(*) begin
+        case (icode_i)
+            NOP: begin
+                srcA = 4'hF;
+                srcB = 4'hF;
+            end
+            HALT: begin
+                srcA = 4'hF;
+                srcB = 4'hF;
+            end
+            RRMOVL: begin
+                srcA = rA_i;
+                srcB = rB_i;
+            end
+            IRMOVL: begin
+                srcA = rA_i;
+                srcB = rB_i;
+            end
+            RMMOVL: begin
+                srcA = rA_i;
+                srcB = rB_i;
+            end
+            MRMOVL: begin
+                srcA = rA_i;
+                srcB = rB_i;
+            end
+            ALU: begin
+                srcA = rA_i;
+                srcB = rB_i;
+            end
+            JXX: begin
+                srcA = 4'hF;
+                srcB = 4'hF;
+            end
+            CALL: begin
+                srcA = 4'hF;
+                srcB = 4'hF;
+            end
+            RET: begin
+                srcA = 4'hF;
+                srcB = 4'hF;
+            end
+            PUSHL: begin
+                srcA = rA_i;
+                srcB = (rB_i == 4'hF) ? 4'h4 : rB_i;  // rB=F时理解为%rsp(4)
+            end
+            POPL: begin
+                srcA = rA_i;                           // rA是目标寄存器
+                srcB = 4'h4;                           // srcB总是%rsp(4)，因为POPL从栈弹出
+            end
+            default: begin
+                srcA = 4'hF;
+                srcB = 4'hF;
+            end
+        endcase
+    end
 
     // 从寄存器文件读出valA_o和valB_o
     // 当寄存器编号为0xF时，输出0
