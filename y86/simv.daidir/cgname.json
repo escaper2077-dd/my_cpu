@@ -1,10 +1,4 @@
 {
-    "execute_tb": [
-        "execute_tb",
-        "Lh6NV",
-        "module",
-        4
-    ],
     "std": [
         "std",
         "reYIK",
@@ -28,5 +22,11 @@
         "dVBRC",
         "module",
         3
+    ],
+    "execute_tb": [
+        "execute_tb",
+        "Lh6NV",
+        "module",
+        4
     ]
 }

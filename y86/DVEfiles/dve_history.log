@@ -4,18 +4,18 @@ gui_create_pref_key -category {Globals} -key {load_detail_for_funcov} -value_typ
 # State setting overrides
 gui_state_default_create -off -ini
 gui_set_state_value -category Layout -key child_console_size_x -value 2489
-gui_set_state_value -category Layout -key child_console_size_y -value 164
-gui_set_state_value -category Layout -key child_data_size_x -value 152
-gui_set_state_value -category Layout -key child_data_size_y -value 1130
+gui_set_state_value -category Layout -key child_console_size_y -value 161
+gui_set_state_value -category Layout -key child_data_size_x -value 149
+gui_set_state_value -category Layout -key child_data_size_y -value 1133
 gui_set_state_value -category Layout -key child_hier_col3 -value {-1}
 gui_set_state_value -category Layout -key child_hier_colpd -value 0
-gui_set_state_value -category Layout -key child_hier_size_x -value 152
-gui_set_state_value -category Layout -key child_hier_size_y -value 1130
+gui_set_state_value -category Layout -key child_hier_size_x -value 149
+gui_set_state_value -category Layout -key child_hier_size_y -value 1133
 gui_set_state_value -category Layout -key child_source_docknewline -value false
 gui_set_state_value -category Layout -key child_source_pos_x -value {-2}
 gui_set_state_value -category Layout -key child_source_pos_y -value {-15}
-gui_set_state_value -category Layout -key child_source_size_x -value 2188
-gui_set_state_value -category Layout -key child_source_size_y -value 1125
+gui_set_state_value -category Layout -key child_source_size_x -value 2194
+gui_set_state_value -category Layout -key child_source_size_y -value 1128
 gui_set_state_value -category Layout -key child_wave_colname -value 359
 gui_set_state_value -category Layout -key child_wave_colvalue -value 359
 gui_set_state_value -category Layout -key child_wave_left -value 722
@@ -41,27 +41,9 @@ gui_state_default_create -off
 
 # Begin command logging
 gui_sim_run Ucli -exe ./simv -args {-ucligui  } -dir .
-gui_sim_continue  
-gui_list_select -id Data.1 -selected  { {fetch_tb.icode_o[3:0]}  {fetch_tb.ifun_o[3:0]}  {fetch_tb.rA_o[3:0]}  {fetch_tb.rB_o[3:0]}  {fetch_tb.valC_o[63:0]}  {fetch_tb.valP_o[63:0]}  fetch_tb.instr_valid_o  fetch_tb.imem_error_o  {fetch_tb.PC_i[63:0]}   }
-gui_sim_restart
-gui_list_expand -id  Data.1   {fetch_tb.icode_o[3:0]}
-gui_list_collapse -id  Data.1   {fetch_tb.icode_o[3:0]}
+gui_list_select -id Hier.1 -current_item_name execute_tb -current_item_type Scope  -selected  { execute_tb   }
+gui_list_select -id Data.1 { {execute_tb.valE_o[63:0]}  execute_tb.Cnd_o  execute_tb.clk_i  execute_tb.rst_n_i  {execute_tb.icode_i[3:0]}  {execute_tb.ifun_i[3:0]}  {execute_tb.valA_i[63:0]}  {execute_tb.valB_i[63:0]}  {execute_tb.valC_i[63:0]}  {execute_tb.NOP[3:0]}  {execute_tb.HALT[3:0]}  {execute_tb.RRMOVL[3:0]}  {execute_tb.IRMOVL[3:0]}  {execute_tb.RMMOVL[3:0]}  {execute_tb.MRMOVL[3:0]}  {execute_tb.ALU[3:0]}  {execute_tb.JXX[3:0]}  {execute_tb.CALL[3:0]}  {execute_tb.RET[3:0]}  {execute_tb.PUSHL[3:0]}  {execute_tb.POPL[3:0]}  {execute_tb.RRMOV_RRMOVL[3:0]}  {execute_tb.RRMOV_CMOVLE[3:0]}  {execute_tb.RRMOV_CMOVL[3:0]}  {execute_tb.RRMOV_CMOVE[3:0]}  {execute_tb.RRMOV_CMOVNE[3:0]}  {execute_tb.RRMOV_CMOVGE[3:0]}  {execute_tb.RRMOV_CMOVG[3:0]}  {execute_tb.ALU_ADDL[3:0]}  {execute_tb.ALU_SUBL[3:0]}  {execute_tb.ALU_ANDL[3:0]}  {execute_tb.ALU_XORL[3:0]}  {execute_tb.JXX_JMP[3:0]}  {execute_tb.JXX_JLE[3:0]}  {execute_tb.JXX_JL[3:0]}  {execute_tb.JXX_JE[3:0]}  {execute_tb.JXX_JNE[3:0]}  {execute_tb.JXX_JGE[3:0]}  {execute_tb.JXX_JG[3:0]}  {execute_tb.JXX_JGE[3:0]}  {execute_tb.JXX_JG[3:0]}  {execute_tb.JXX_JGE[3:0]}  {execute_tb.JXX_JNE[3:0]}  {execute_tb.JXX_JGE[3:0]}  {execute_tb.JXX_JNE[3:0]}  {execute_tb.JXX_JGE[3:0]}  {execute_tb.JXX_JG[3:0]}   }
 gui_open_window Wave
-gui_list_add -id Wave.1 -from Data.1 { {fetch_tb.icode_o[3:0]} {fetch_tb.ifun_o[3:0]} {fetch_tb.rA_o[3:0]} {fetch_tb.rB_o[3:0]} {fetch_tb.valC_o[63:0]} {fetch_tb.valP_o[63:0]} fetch_tb.instr_valid_o fetch_tb.imem_error_o {fetch_tb.PC_i[63:0]} } -insertionbar
+gui_list_add -id Wave.1 -from Data.1 { {execute_tb.valE_o[63:0]} execute_tb.Cnd_o execute_tb.clk_i execute_tb.rst_n_i {execute_tb.icode_i[3:0]} {execute_tb.ifun_i[3:0]} {execute_tb.valA_i[63:0]} {execute_tb.valB_i[63:0]} {execute_tb.valC_i[63:0]} {execute_tb.NOP[3:0]} {execute_tb.HALT[3:0]} {execute_tb.RRMOVL[3:0]} {execute_tb.IRMOVL[3:0]} {execute_tb.RMMOVL[3:0]} {execute_tb.MRMOVL[3:0]} {execute_tb.ALU[3:0]} {execute_tb.JXX[3:0]} {execute_tb.CALL[3:0]} {execute_tb.RET[3:0]} {execute_tb.PUSHL[3:0]} {execute_tb.POPL[3:0]} {execute_tb.RRMOV_RRMOVL[3:0]} {execute_tb.RRMOV_CMOVLE[3:0]} {execute_tb.RRMOV_CMOVL[3:0]} {execute_tb.RRMOV_CMOVE[3:0]} {execute_tb.RRMOV_CMOVNE[3:0]} {execute_tb.RRMOV_CMOVGE[3:0]} {execute_tb.RRMOV_CMOVG[3:0]} {execute_tb.ALU_ADDL[3:0]} {execute_tb.ALU_SUBL[3:0]} {execute_tb.ALU_ANDL[3:0]} {execute_tb.ALU_XORL[3:0]} {execute_tb.JXX_JMP[3:0]} {execute_tb.JXX_JLE[3:0]} {execute_tb.JXX_JL[3:0]} {execute_tb.JXX_JE[3:0]} {execute_tb.JXX_JNE[3:0]} {execute_tb.JXX_JGE[3:0]} {execute_tb.JXX_JG[3:0]} } -insertionbar
 gui_sim_continue  
-gui_list_expand -id  Wave.1   {fetch_tb.icode_o[3:0]}
-gui_sim_restart
-gui_sim_continue  
-gui_wv_scroll_hslidermove -id  Wave.1 0
-gui_wv_scroll_hslidermove -id  Wave.1 0
-gui_wv_scroll_hslidermove -id  Wave.1 0
-gui_marker_move -id  Wave.1 C1 70
-gui_marker_move -id  Wave.1 C1 60
-gui_marker_move -id  Wave.1 C1 60
-gui_marker_move -id  Wave.1 C1 60
-gui_marker_move -id  Wave.1 C1 50
-gui_marker_move -id  Wave.1 C1 47
-gui_marker_move -id  Wave.1 C1 30
-gui_list_expand -id  Wave.1   {fetch_tb.valC_o[63:0]}
-gui_list_collapse -id  Wave.1   {fetch_tb.valC_o[63:0]}
 gui_close_window -window TopLevel.2

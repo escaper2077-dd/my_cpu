@@ -21,7 +21,7 @@ VCS_SIMV = $(BUILD_DIR)/simv
 all: help
 
 help:
-	@echo "Y86-64 Fetch Stage Testbench - Makefile"
+	@echo "Y86-64 Testbench - Makefile"
 	@echo "========================================"
 	@echo "Targets:"
 	@echo "  vcs       - Compile with VCS"
@@ -47,8 +47,12 @@ $(VCS_SIMV): filelist.f $(FETCH_RTL) $(FETCH_TB)
 
 # 运行VCS模拟
 run: vcs
-	@echo "Running VCS simulation..."
-	@cd $(BUILD_DIR) && ./simv
+	@echo "Running VCS simulation and generating waveform (rtl.fsdb)..."
+	@mkdir -p $(BUILD_DIR)
+	# Run simv and request FSDB dump for Verdi; keep a simv log
+	# Note: +vcs+dumpvars+file creates an FSDB file usable by Verdi.
+	# Also enable vcdplus for GUI viewers that prefer VPD/VCD style outputs.
+	@cd $(BUILD_DIR) && ./simv +vcs+dumpvars+file=../rtl.fsdb +vcs+vcdpluson -l simv.log -gui
 
 # Verdi波形查看
 verdi:

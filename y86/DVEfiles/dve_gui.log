@@ -1,70 +1,81 @@
 Chronologic VCS simulator copyright 1991-2018
 Contains Synopsys proprietary information.
-Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jan 14 21:47 2026
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jan 17 10:22 2026
 VCD+ Writer O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
 The file '/home/escaper/my_cpu/y86/inter.vpd' was opened successfully.
-Y86-64 Fetch Stage Testbench
-================================================================================
-PC      | icode | ifun | rA   | rB   | valC             | valP     | valid | error
---------|-------|------|------|------|------------------|----------|-------|------
-00000000 | 0    | 0   | f   | f   | abcdeff530342010 | 00000001 | 1     | 0
-00000001 | 1    | 0   | f   | f   | 89abcdeff5303420 | 00000002 | 1     | 0
-00000002 | 2    | 0   | 3   | 4   | 456789abcdeff530 | 00000004 | 1     | 0
-00000004 | 3    | 0   | f   | 5   | 0123456789abcdef | 0000000e | 1     | 0
-0000000e | 4    | 0   | 1   | 2   | 0000000000000100 | 00000018 | 1     | 0
-00000018 | 6    | 1   | 5   | 6   | xxxxxxxxxxxxxxe0 | 0000001a | 1     | 0
-0000001a | e    | 0   | f   | f   | xxxxxxxxxxxxxxxx | 0000001b | 0     | 0
-00000400 | x    | x   | x   | x   | xxxxxxxxxxxxxxxx | xxxxxxxxxxxxxxxx | x     | 1
-================================================================================
-Simulation finished!
-$finish called from file "fetch_tb.v", line 130.
-$finish at simulation time                   80
-Simulation complete, time is 80 ps.
-Chronologic VCS simulator copyright 1991-2018
-Contains Synopsys proprietary information.
-Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jan 14 21:47 2026
-VCD+ Writer O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
-The file '/home/escaper/my_cpu/y86/inter.vpd' was opened successfully.
-Y86-64 Fetch Stage Testbench
-================================================================================
-PC      | icode | ifun | rA   | rB   | valC             | valP     | valid | error
---------|-------|------|------|------|------------------|----------|-------|------
-00000000 | 0    | 0   | f   | f   | abcdeff530342010 | 00000001 | 1     | 0
-00000001 | 1    | 0   | f   | f   | 89abcdeff5303420 | 00000002 | 1     | 0
-00000002 | 2    | 0   | 3   | 4   | 456789abcdeff530 | 00000004 | 1     | 0
-00000004 | 3    | 0   | f   | 5   | 0123456789abcdef | 0000000e | 1     | 0
-0000000e | 4    | 0   | 1   | 2   | 0000000000000100 | 00000018 | 1     | 0
-00000018 | 6    | 1   | 5   | 6   | xxxxxxxxxxxxxxe0 | 0000001a | 1     | 0
-0000001a | e    | 0   | f   | f   | xxxxxxxxxxxxxxxx | 0000001b | 0     | 0
-00000400 | x    | x   | x   | x   | xxxxxxxxxxxxxxxx | xxxxxxxxxxxxxxxx | x     | 1
-================================================================================
-Simulation finished!
-$finish called from file "fetch_tb.v", line 130.
-$finish at simulation time                   80
-Simulation complete, time is 80 ps.
-Chronologic VCS simulator copyright 1991-2018
-Contains Synopsys proprietary information.
-Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jan 14 21:55 2026
-VCD+ Writer O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
-The file '/home/escaper/my_cpu/y86/inter.vpd' was opened successfully.
-Y86-64 Fetch Stage Testbench
-================================================================================
-PC      | icode | ifun | rA   | rB   | valC             | valP     | valid | error
---------|-------|------|------|------|------------------|----------|-------|------
-00000000 | 0    | 0   | f   | f   | abcdeff530342010 | 00000001 | 1     | 0
-00000001 | 1    | 0   | f   | f   | 89abcdeff5303420 | 00000002 | 1     | 0
-00000002 | 2    | 0   | 3   | 4   | 456789abcdeff530 | 00000004 | 1     | 0
-00000004 | 3    | 0   | f   | 5   | 0123456789abcdef | 0000000e | 1     | 0
-0000000e | 4    | 0   | 1   | 2   | 0000000000000100 | 00000018 | 1     | 0
-00000018 | 6    | 1   | 5   | 6   | xxxxxxxxxxxxxxe0 | 0000001a | 1     | 0
-0000001a | e    | 0   | f   | f   | xxxxxxxxxxxxxxxx | 0000001b | 0     | 0
-00000400 | x    | x   | x   | x   | xxxxxxxxxxxxxxxx | xxxxxxxxxxxxxxxx | x     | 1
-================================================================================
-Simulation finished!
-$finish called from file "fetch_tb.v", line 130.
-$finish at simulation time                   80
-Simulation complete, time is 80 ps.
+================== Execute Stage Test Cases ==================
+
+========== Test 1: ALU ADDL (3 + 5 = 8) ==========
+ADDL 0x3 + 0x5 = 0x0000000000000008 (expected 0x8), Condition Code: ZF=0, SF=0, OF=0
+
+========== Test 2: ALU SUBL (10 - 3 = 7) ==========
+SUBL 0xA - 0x3 = 0x0000000000000007 (expected 0x7), Condition Code: ZF=0, SF=0, OF=0
+
+========== Test 3: ALU ANDL (0xFF & 0x0F = 0x0F) ==========
+ANDL 0xFF & 0x0F = 0x000000000000000f (expected 0xF), Condition Code: ZF=0, SF=0, OF=0
+
+========== Test 4: ALU XORL (0xAA ^ 0x55 = 0xFF) ==========
+XORL 0xAA ^ 0x55 = 0x00000000000000ff (expected 0xFF), Condition Code: ZF=0, SF=0, OF=0
+
+========== Test 5: ALU ADDL Zero Result (5 + (-5) = 0) ==========
+ADDL 0x5 + 0xFFFFFFFFFFFFFFFB = 0x0000000000000000 (expected 0x0), Condition Code: ZF=1, SF=0, OF=0
+
+========== Test 6: ALU ADDL Negative Result (-1 + (-1) = -2) ==========
+ADDL 0xFFFFFFFFFFFFFFFF + 0xFFFFFFFFFFFFFFFF = 0xfffffffffffffffe (expected 0xFFFFFFFFFFFFFFFE), Condition Code: ZF=0, SF=1, OF=0
+
+========== Test 7: RRMOVL (Unconditional Move) ==========
+RRMOVL valA=0x0123456789abcdef => valE=0x0123456789abcdef, Cnd=1 (should be 1)
+
+========== Test 8: IRMOVL (Immediate Load) ==========
+IRMOVL valC=0x1234567890abcdef => valE=0x1234567890abcdef
+
+========== Test 9: RMMOVL (Store Register to Memory) ==========
+RMMOVL Addr = valB(0x0000000000001000) + valC(0x0000000000000100) = 0x0000000000001100
+
+========== Test 10: MRMOVL (Load Register from Memory) ==========
+MRMOVL Addr = valB(0x0000000000002000) + valC(0x0000000000000200) = 0x0000000000002200
+
+========== Test 11: PUSHL (Push to Stack) ==========
+PUSHL RSP = 0x0000000000008000 => New RSP = 0x0000000000007ff8
+
+========== Test 12: POPL (Pop from Stack) ==========
+POPL RSP = 0x0000000000007ff8 => New RSP = 0x0000000000008000
+
+========== Test 13: CALL (Function Call) ==========
+CALL RSP = 0x0000000000008000 => New RSP = 0x0000000000007ff8
+
+========== Test 14: RET (Return from Function) ==========
+RET RSP = 0x0000000000007ff8 => New RSP = 0x0000000000008000
+
+========== Test 15: JMP (Always Jump) ==========
+JMP => Condition = 1 (expected 1)
+
+========== Test 16: JE (Jump if Equal) - ZF=1 ==========
+JE (ZF=1) => Condition = 1 (expected 1)
+
+========== Test 17: JE (Jump if Equal) - ZF=0 ==========
+JE (ZF=0) => Condition = 0 (expected 0)
+
+========== Test 18: JL (Jump if Less) - SF=1 ==========
+JL (SF=1) => Condition = 1 (expected 1)
+
+========== Test 19: JG (Jump if Greater) - SF=0, ZF=0 ==========
+JG (SF=0, ZF=0) => Condition = 1 (expected 1)
+
+========== Test 20: CMOVE (Conditional Move if Equal) - ZF=1 ==========
+CMOVE (ZF=1) => valE=0x0fedcba987654321, Cnd=1 (expected 1)
+
+========== Test 21: CMOVL (Conditional Move if Less) - SF=1 ==========
+CMOVL (SF=1) => valE=0x1111111111111111, Cnd=1 (expected 1)
+
+========== Test 22: CMOVNE (Conditional Move if Not Equal) - ZF=0 ==========
+CMOVNE (ZF=0) => valE=0x2222222222222222, Cnd=1 (expected 1)
+
+================== Test Complete ==================
+$finish called from file "execute_tb.v", line 328.
+$finish at simulation time                  390
+Simulation complete, time is 390 ps.
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 80 ps
-CPU Time:      0.050 seconds;       Data structure size:   0.0Mb
-Wed Jan 14 22:00:31 2026
+Time: 390 ps
+CPU Time:      0.100 seconds;       Data structure size:   0.0Mb
+Sat Jan 17 10:22:41 2026
