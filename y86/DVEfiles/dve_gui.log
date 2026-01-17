@@ -1,6 +1,6 @@
 Chronologic VCS simulator copyright 1991-2018
 Contains Synopsys proprietary information.
-Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jan 17 10:22 2026
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jan 17 10:42 2026
 VCD+ Writer O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
 The file '/home/escaper/my_cpu/y86/inter.vpd' was opened successfully.
 ================== Execute Stage Test Cases ==================
@@ -77,5 +77,5 @@ $finish at simulation time                  390
 Simulation complete, time is 390 ps.
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 390 ps
-CPU Time:      0.100 seconds;       Data structure size:   0.0Mb
-Sat Jan 17 10:22:41 2026
+CPU Time:      0.110 seconds;       Data structure size:   0.0Mb
+Sat Jan 17 10:42:52 2026

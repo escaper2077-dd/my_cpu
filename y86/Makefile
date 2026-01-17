@@ -14,6 +14,10 @@ FETCH_TB = fetch_tb.v
 # 输出目录
 BUILD_DIR = ./build
 
+# 从 filelist.f 自动解析列出的源文件（忽略注释和空行）
+# 需要 GNU make / POSIX awk
+FILELIST_SRCS := $(shell awk '!/^[[:space:]]*($|#|\/\/)/{print}' filelist.f)
+
 # 编译目标
 VCS_SIMV = $(BUILD_DIR)/simv
 
@@ -33,7 +37,7 @@ help:
 # VCS编译目标
 vcs: $(VCS_SIMV)
 
-$(VCS_SIMV): filelist.f $(FETCH_RTL) $(FETCH_TB)
+$(VCS_SIMV): filelist.f $(FILELIST_SRCS)
 	@mkdir -p $(BUILD_DIR)
 	@echo "Compiling with VCS (full configuration)..."
 	vcs -full64 -cpp g++-4.8 -cc gcc-4.8 -LDFLAGS -Wl,--no-as-needed \

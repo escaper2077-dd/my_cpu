@@ -1,46 +1,46 @@
-10:22:28    16 -->                                                             [tcl] ucliGUI::connect -toolargs -ucligui -toolexe ./simv -pid 15376 -toolin /tmp/vcs_20260117022227_15375_escaper..stdin -toolout /tmp/vcs_20260117022227_15375_escaper..stdout  
-10:22:28    17 -->                                                                 [tcl] set ucliGUI::state
-10:22:29    18 -->                                                                     [tcl] gui_update_simulator_buttons
-10:22:29    19 -->                                                                         [tcl] set ucliGUI::state
-10:22:29    20 -->                                                                             [tcl] ucliCore::getToolPID
-10:22:29    21 -->                                                                                 [tcl] synopsys::env hasTB
-10:22:29    22 -->                                                                                     [tcl] trigger_hier_stack_context_switch 0
-10:22:29    23 -->                                                                                         [tcl] synUtils::setDVEInitPhase 1
-10:22:29    24 -->                                                                                             [tcl] gui_get_env SIMSETUP::SIMVPD
-10:22:29    25 --> ...  [tcl] synopsys::dump -type VPD -file /home/escaper/my_cpu/y86/inter.vpd -locking
-10:22:29    26 --> ...      [tcl] synopsys::dump -autoflush on -fid VPD0
-10:22:29    27 --> ...          [tcl] set ::dve_fid VPD0
-10:22:29    28 --> ...              [tcl] synUtils::setDVEInitPhase 0
-10:22:29    29 --> ...                  [tcl] ucliCore::getToolPID
-10:22:29    30 --> ...                      [tcl] synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpfCshxo
-10:22:29    31 --> ...                          [tcl] synUtils::sendTool -active {_icl_start_rpc -version "O-2018.09-SP2_Full64" -sync_file /tmp/vcs_dve_rpc.escaper.15376}
-10:22:29    32 --> ...                              [tcl] synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.escaper.15376}
-10:22:29    33 --> ...                                  [tcl] dveMisc::vbusExpand fetch
-10:22:29    34 --> ...                                      [tcl] config endofsim noexit
-10:22:29    35 --> ...                                          [tcl] config onfail enable all
-10:22:29    36 --> ...                                              [tcl] config syscaddplainmembers
-10:22:29    37 --> ...                                                  [tcl] config syscaddsourcenames
-10:22:29    38 --> ...                                                      [tcl] config syscaddstructtypes
-10:22:29    39 --> ...                                                          [tcl] synopsys::listing -disable
-10:22:30    40 --> ...                                                              [tcl] dveMisc::vbusExpand execute_tb
-10:22:35    41 --> ...                                                                  [tcl] synopsys::dump -add {execute_tb.ALU execute_tb.ALU_ADDL execute_tb.ALU_ANDL execute_tb.ALU_SUBL execute_tb.ALU_XORL execute_tb.CALL execute_tb.Cnd_o execute_tb.HALT execute_tb.IRMOVL execute_tb.JXX execute_tb.JXX_JE execute_tb.JXX_JG execute_tb.JXX_JGE execute_tb.JXX_JL execute_tb.JXX_JLE execute_tb.JXX_JMP execute_tb.JXX_JNE execute_tb.MRMOVL execute_tb.NOP execute_tb.POPL execute_tb.PUSHL execute_tb.RET execute_tb.RMMOVL execute_tb.RRMOVL execute_tb.RRMOV_CMOVE execute_tb.RRMOV_CMOVG execute_tb.RRMOV_CMOVGE execute_tb.RRMOV_CMOVL execute_tb.RRMOV_CMOVLE execute_tb.RRMOV_CMOVNE execute_tb.RRMOV_RRMOVL execute_tb.clk_i execute_tb.icode_i execute_tb.ifun_i execute_tb.rst_n_i execute_tb.valA_i execute_tb.valB_i execute_tb.valC_i execute_tb.valE_o } -aggregates  -fid VPD0
-10:22:37    42 --> ...                                                                      [tcl] synopsys::run
-10:22:37    43 --> ...                                                                          [tcl] set ucliGUI::state
-10:22:37    44 --> ...                                                                              [tcl] gui_update_simulator_buttons
-10:22:37    45 --> ...                                                                                  [tcl] set ucliGUI::state
-10:22:37    46 --> ...                                                                                      [tcl] set ucliGUI::state
-10:22:37    47 --> ...                                                                                          [tcl] set ucliGUI::state
-10:22:37    48 --> ...                                                                                              [tcl] catch {senv activeDomain} dveMisc::result 
-10:22:37    49 --> ...                                                                                                  [tcl] set dveMisc::result
-10:22:37    50 --> ...  [tcl] gui_update_simulator_buttons
-10:22:41    51 --> ...      [tcl] if [catch {gui_sim_terminate}] {gui_sim_terminate -kill}
-10:22:41    52 --> ...          [tcl] synopsys::finish
-10:22:41    53 --> ...              [tcl] set ucliGUI::state
-10:22:41    54 --> ...                  [tcl] gui_update_simulator_buttons
-10:22:41    55 --> ...                      [tcl] set ucliGUI::state
-10:22:41    56 --> ...                          [tcl] catch {senv activeDomain} dveMisc::result 
-10:22:41    57 --> ...                              [tcl] set dveMisc::result
-10:22:41    58 --> ...                                  [tcl] gui_update_simulator_buttons
-10:22:41    59 --> ...                                      [tcl] catch {senv activeDomain} dveMisc::result 
-10:22:41    60 --> ...                                          [tcl] set dveMisc::result
-10:22:41    61 --> ...                                              [tcl] ucli_exit
+10:42:29    16 -->                                                             [tcl] ucliGUI::connect -toolargs -ucligui -toolexe ./simv -pid 20285 -toolin /tmp/vcs_20260117024228_20284_escaper..stdin -toolout /tmp/vcs_20260117024228_20284_escaper..stdout  
+10:42:29    17 -->                                                                 [tcl] set ucliGUI::state
+10:42:29    18 -->                                                                     [tcl] gui_update_simulator_buttons
+10:42:30    19 -->                                                                         [tcl] set ucliGUI::state
+10:42:30    20 -->                                                                             [tcl] ucliCore::getToolPID
+10:42:30    21 -->                                                                                 [tcl] synopsys::env hasTB
+10:42:30    22 -->                                                                                     [tcl] trigger_hier_stack_context_switch 0
+10:42:30    23 -->                                                                                         [tcl] synUtils::setDVEInitPhase 1
+10:42:30    24 -->                                                                                             [tcl] gui_get_env SIMSETUP::SIMVPD
+10:42:30    25 --> ...  [tcl] synopsys::dump -type VPD -file /home/escaper/my_cpu/y86/inter.vpd -locking
+10:42:30    26 --> ...      [tcl] synopsys::dump -autoflush on -fid VPD0
+10:42:30    27 --> ...          [tcl] set ::dve_fid VPD0
+10:42:30    28 --> ...              [tcl] synUtils::setDVEInitPhase 0
+10:42:30    29 --> ...                  [tcl] ucliCore::getToolPID
+10:42:30    30 --> ...                      [tcl] synUtils::sendTool -active _icl_setToolSocket /tmp/smlnp0H2NeH
+10:42:30    31 --> ...                          [tcl] synUtils::sendTool -active {_icl_start_rpc -version "O-2018.09-SP2_Full64" -sync_file /tmp/vcs_dve_rpc.escaper.20285}
+10:42:30    32 --> ...                              [tcl] synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.escaper.20285}
+10:42:30    33 --> ...                                  [tcl] dveMisc::vbusExpand fetch
+10:42:30    34 --> ...                                      [tcl] config endofsim noexit
+10:42:30    35 --> ...                                          [tcl] config onfail enable all
+10:42:30    36 --> ...                                              [tcl] config syscaddplainmembers
+10:42:30    37 --> ...                                                  [tcl] config syscaddsourcenames
+10:42:30    38 --> ...                                                      [tcl] config syscaddstructtypes
+10:42:30    39 --> ...                                                          [tcl] synopsys::listing -disable
+10:42:34    40 --> ...                                                              [tcl] dveMisc::vbusExpand execute_tb
+10:42:39    41 --> ...                                                                  [tcl] synopsys::dump -add {execute_tb.ALU execute_tb.ALU_ADDL execute_tb.ALU_ANDL execute_tb.ALU_SUBL execute_tb.ALU_XORL execute_tb.CALL execute_tb.Cnd_o execute_tb.HALT execute_tb.IRMOVL execute_tb.JXX execute_tb.JXX_JE execute_tb.JXX_JG execute_tb.JXX_JGE execute_tb.JXX_JL execute_tb.JXX_JLE execute_tb.JXX_JMP execute_tb.JXX_JNE execute_tb.MRMOVL execute_tb.NOP execute_tb.POPL execute_tb.PUSHL execute_tb.RET execute_tb.RMMOVL execute_tb.RRMOVL execute_tb.RRMOV_CMOVE execute_tb.RRMOV_CMOVG execute_tb.RRMOV_CMOVGE execute_tb.RRMOV_CMOVL execute_tb.RRMOV_CMOVLE execute_tb.RRMOV_CMOVNE execute_tb.RRMOV_RRMOVL execute_tb.clk_i execute_tb.icode_i execute_tb.ifun_i execute_tb.rst_n_i execute_tb.valA_i execute_tb.valB_i execute_tb.valC_i execute_tb.valE_o } -aggregates  -fid VPD0
+10:42:40    42 --> ...                                                                      [tcl] synopsys::run
+10:42:40    43 --> ...                                                                          [tcl] set ucliGUI::state
+10:42:40    44 --> ...                                                                              [tcl] gui_update_simulator_buttons
+10:42:40    45 --> ...                                                                                  [tcl] set ucliGUI::state
+10:42:40    46 --> ...                                                                                      [tcl] set ucliGUI::state
+10:42:40    47 --> ...                                                                                          [tcl] set ucliGUI::state
+10:42:40    48 --> ...                                                                                              [tcl] catch {senv activeDomain} dveMisc::result 
+10:42:40    49 --> ...                                                                                                  [tcl] set dveMisc::result
+10:42:40    50 --> ...  [tcl] gui_update_simulator_buttons
+10:42:52    51 --> ...      [tcl] if [catch {gui_sim_terminate}] {gui_sim_terminate -kill}
+10:42:52    52 --> ...          [tcl] synopsys::finish
+10:42:52    53 --> ...              [tcl] set ucliGUI::state
+10:42:52    54 --> ...                  [tcl] gui_update_simulator_buttons
+10:42:52    55 --> ...                      [tcl] set ucliGUI::state
+10:42:52    56 --> ...                          [tcl] catch {senv activeDomain} dveMisc::result 
+10:42:52    57 --> ...                              [tcl] set dveMisc::result
+10:42:52    58 --> ...                                  [tcl] gui_update_simulator_buttons
+10:42:52    59 --> ...                                      [tcl] catch {senv activeDomain} dveMisc::result 
+10:42:52    60 --> ...                                          [tcl] set dveMisc::result
+10:42:52    61 --> ...                                              [tcl] ucli_exit
