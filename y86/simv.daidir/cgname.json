@@ -5,34 +5,16 @@
         "module",
         1
     ],
-    "fetch": [
-        "fetch",
-        "Qk6Wn",
+    "y86_cpu_full_tb": [
+        "y86_cpu_full_tb",
+        "iYEdR",
         "module",
         2
-    ],
-    "decode": [
-        "decode",
-        "dVBRC",
-        "module",
-        3
-    ],
-    "fetch_decode_tb": [
-        "fetch_decode_tb",
-        "WuRvi",
-        "module",
-        4
     ],
     "...MASTER...": [
         "SIM",
         "amcQw",
         "module",
-        6
-    ],
-    "y86_cpu": [
-        "y86_cpu",
-        "htEud",
-        "module",
-        5
+        3
     ]
 }

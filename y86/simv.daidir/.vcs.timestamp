@@ -125,16 +125,16 @@ AM_HOME=/home/escaper/ysyx-workbench/abstract-machine
 ALL_PROXY=socks://127.0.0.1:8891/
 0
 12
+1768987105 y86_cpu_full_tb.v
 1768987337 y86_cpu.v
 1768987105 pc_update.v
-1768987105 stat.v
+1768998918 stat.v
 1768987337 write_back.v
 1768987337 memory_access.v
 1768566660 execute.v
-1768992212 fetch_decode_tb.v
 1768987105 decode.v
 1768987337 fetch.v
-1768992345 filelist.f
+1768992626 filelist.f
 1550753332 /home/escaper/vcs/verdi/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/verdi.tab
 1551421246 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/vcsdp_lite.tab
 4
@@ -142,5 +142,5 @@ ALL_PROXY=socks://127.0.0.1:8891/
 1551421792 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/liberrorinf.so
 1551421768 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libsnpsmalloc.so
 1551421789 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libvfs.so
-1768992351 simv.daidir
+1768998925 simv.daidir
 -1 partitionlib

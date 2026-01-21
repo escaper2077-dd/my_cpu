@@ -1,9 +1,9 @@
 decode.v
 execute.v
 fetch.v
-fetch_decode_tb.v
 memory_access.v
 pc_update.v
 stat.v
 write_back.v
 y86_cpu.v
+y86_cpu_full_tb.v

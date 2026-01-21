@@ -3,7 +3,7 @@ fetch.v
 //fetch_tb.v
 decode.v
 //decode_tb.v
-fetch_decode_tb.v
+//fetch_decode_tb.v
 execute.v
 //execute_tb.v
 memory_access.v
@@ -14,5 +14,5 @@ stat.v
 pc_update.v
 y86_cpu.v
 //y86_cpu_tb.v
-//y86_cpu_full_tb.v
+y86_cpu_full_tb.v
 

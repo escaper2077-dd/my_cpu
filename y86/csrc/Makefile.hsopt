@@ -13,7 +13,7 @@ VCS_CC=gcc
 CC_CG=gcc
 
 # User overrode default CC: 
-VCS_CC=gcc-4.8
+VCS_CC=gcc
 # Loader
 LD=g++
 # Loader Flags
@@ -44,4 +44,4 @@ include filelist.hsopt
 
 
 rmapats.so: $(HSOPT_OBJS)
-	@$(VCS_CC) $(LDFLAGS) $(LIBS) -shared -o ./../simv.daidir/rmapats.so $(HSOPT_OBJS)
+	@$(VCS_CC) $(LDFLAGS) $(LIBS) -shared -o ./../y86_cpu_comp.daidir/rmapats.so $(HSOPT_OBJS)

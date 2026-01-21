@@ -1,0 +1,144 @@
+0 
+31
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -fPIC -O -I/home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags=-L/usr/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -Wl,--no-as-needed -no-pie -rdynamic
+-Mobjects= /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libvirsim.so /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/liberrorinf.so /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libsnpsmalloc.so /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libvfs.so
+-Mout=y86_cpu_comp
+-Msaverestoreobj=/home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=-ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/include
+-full64
+-gen_obj
+-o y86_cpu_comp
+-picarchive
+-sverilog
+/home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/bin/vcs1
+decode.v
+execute.v
+fetch.v
+memory_access.v
+pc_update.v
+stat.v
+write_back.v
+y86_cpu.v
+y86_cpu_comprehensive_tb.v
+92
+sysc_uni_pwd=/home/escaper/my_cpu/y86
+XMODIFIERS=@im=fcitx
+XDG_SESSION_TYPE=x11
+XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_CLASS=user
+XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+XDG_RUNTIME_DIR=/run/user/1000
+XDG_MENU_PREFIX=gnome-
+XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/escaper
+XDG_DATA_DIRS=/home/escaper/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XAUTHORITY=/home/escaper/.Xauthority
+VSCODE_PYTHON_AUTOACTIVATE_GUARD=1
+VSCODE_GIT_IPC_HANDLE=/run/user/1000/vscode-git-1ce3aeebea.sock
+VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
+VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+VMR_MODE_FLAG=64
+VERDI_HOME=/home/escaper/vcs/verdi/verdi/Verdi_O-2018.09-SP2
+VERDI_DIR=/home/escaper/vcs/verdi/verdi/Verdi_O-2018.09-SP2
+VCS_TARGET_ARCH=amd64
+VCS_MODE_FLAG=64
+VCS_HOME=/home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH=linux64
+UNAME=/bin/uname
+TOOL_HOME=/home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64
+TERM_PROGRAM_VERSION=1.108.0
+TERM_PROGRAM=vscode
+SYSTEMD_EXEC_PID=1801
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+SSH_AGENT_LAUNCHER=gnome-keyring
+SNPS_VCS_INTERNAL_UBUNTU_PRE_LDFLAGS= -Wl,--no-as-needed 
+SNPS_VCS_INTERNAL_LINKER_NEEDS_NO_AS_NEEDED=1
+SESSION_MANAGER=local/escaper-Lenovo-Legion-R9000X2021R:@/tmp/.ICE-unix/1774,unix/escaper-Lenovo-Legion-R9000X2021R:/tmp/.ICE-unix/1774
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+QT_IM_MODULE=fcitx
+QT_ACCESSIBILITY=1
+PYTHON_BASIC_REPL=1
+PYTHONSTARTUP=/home/escaper/.config/Code/User/workspaceStorage/1e8cd9ed6bd74c1f0037e37b28c7f23c/ms-python.python/pythonrc.py
+PAPERSIZE=a4
+OVA_UUM=0
+NVBOARD_HOME=/home/escaper/ysyx-workbench/nvboard
+NPI_PLATFORM=LINUX64_GNU_472
+NPC_HOME=/home/escaper/ysyx-workbench/npc
+NOVAS_INST_DIR=/home/escaper/vcs/verdi/verdi/Verdi_O-2018.09-SP2
+NOVAS_HOME=/home/escaper/vcs/verdi/verdi/Verdi_O-2018.09-SP2
+NEMU_HOME=/home/escaper/ysyx-workbench/nemu
+MANAGERPID=1550
+LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
+LESSOPEN=| /usr/bin/lesspipe %s
+LESSCLOSE=/usr/bin/lesspipe %s %s
+LC_TIME=zh_CN.UTF-8
+LC_TELEPHONE=zh_CN.UTF-8
+LC_PAPER=zh_CN.UTF-8
+LC_NUMERIC=zh_CN.UTF-8
+LC_NAME=zh_CN.UTF-8
+LC_MONETARY=zh_CN.UTF-8
+LC_MEASUREMENT=zh_CN.UTF-8
+LC_IDENTIFICATION=zh_CN.UTF-8
+LC_ALL=C
+LC_ADDRESS=zh_CN.UTF-8
+JOURNAL_STREAM=8:13905
+INVOCATION_ID=832e7b478dc847aa913d103fc070fcd0
+HISTCONTROL=ignorespace
+GTK_MODULES=gail:atk-bridge
+GTK_IM_MODULE=fcitx
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+GNOME_SHELL_SESSION_MODE=ubuntu
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GJS_DEBUG_TOPICS=JS ERROR;JS LOG
+GJS_DEBUG_OUTPUT=stderr
+GIT_PAGER=cat
+GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
+GIO_LAUNCHED_DESKTOP_FILE_PID=96901
+GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/code.desktop
+GDM_LANG=en_US
+GDMSESSION=ubuntu
+GDK_BACKEND=x11
+FC_FONTATIONS=1
+DVE_HOME=/home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/gui/dve
+DESKTOP_SESSION=ubuntu
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+CPATH=/usr/include/x86_64-linux-gnu
+COLORTERM=truecolor
+CLUTTER_IM_MODULE=fcitx
+CHROME_DESKTOP=code.desktop
+AM_HOME=/home/escaper/ysyx-workbench/abstract-machine
+0
+9
+1768999682 y86_cpu_comprehensive_tb.v
+1768987337 y86_cpu.v
+1768987105 pc_update.v
+1768998918 stat.v
+1768987337 write_back.v
+1768987337 memory_access.v
+1768566660 execute.v
+1768987105 decode.v
+1768987337 fetch.v
+4
+1551422344 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libvirsim.so
+1551421792 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/liberrorinf.so
+1551421768 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libsnpsmalloc.so
+1551421789 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libvfs.so
+1768999693 y86_cpu_comp.daidir
+-1 partitionlib
