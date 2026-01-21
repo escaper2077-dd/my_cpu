@@ -1,5 +1,0 @@
-read_verilog -sv -formal -overwrite {workspace}/y86/fetch.v
-read_verilog -sv -formal -overwrite {workspace}/y86/decode.v
-read_verilog -sv -formal -overwrite {workspace}/y86/cpu_tb.v
-design -reset-vlog; proc;
-write_json {workspace}/netlist/cpu_tb.json

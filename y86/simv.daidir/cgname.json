@@ -1,10 +1,4 @@
 {
-    "memory_access_tb": [
-        "memory_access_tb",
-        "ZTTB7",
-        "module",
-        5
-    ],
     "std": [
         "std",
         "reYIK",
@@ -16,6 +10,12 @@
         "Qk6Wn",
         "module",
         2
+    ],
+    "memory_access_tb": [
+        "memory_access_tb",
+        "ZTTB7",
+        "module",
+        5
     ],
     "decode": [
         "decode",

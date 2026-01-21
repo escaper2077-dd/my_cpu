@@ -9,16 +9,16 @@ synopsys::dump -autoflush on -fid VPD0
 set ::dve_fid VPD0
 synUtils::setDVEInitPhase 0
 ucliCore::getToolPID
-synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpIdw7OF
-synUtils::sendTool -active {_icl_start_rpc -version "O-2018.09-SP2_Full64" -sync_file /tmp/vcs_dve_rpc.escaper.44833}
-synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.escaper.44833}
+synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpgo9k7y
+synUtils::sendTool -active {_icl_start_rpc -version "O-2018.09-SP2_Full64" -sync_file /tmp/vcs_dve_rpc.escaper.46136}
+synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.escaper.46136}
 config endofsim noexit
 config onfail enable all
 config syscaddplainmembers
 config syscaddsourcenames
 config syscaddstructtypes
 synopsys::listing -disable
-synopsys::dump -add {fetch.ALU fetch.ALU_ADDL fetch.ALU_ANDL fetch.ALU_SUBL fetch.ALU_XORL fetch.CALL fetch.HALT fetch.IRMOVL fetch.JXX fetch.JXX_JE fetch.JXX_JG fetch.JXX_JGE fetch.JXX_JL fetch.JXX_JLE fetch.JXX_JMP fetch.JXX_JNE fetch.MRMOVL fetch.NOP fetch.PC_i fetch.POPL fetch.PUSHL fetch.RET fetch.RMMOVL fetch.RRMOVL fetch.RRMOV_CMOVE fetch.RRMOV_CMOVG fetch.RRMOV_CMOVGE fetch.RRMOV_CMOVL fetch.RRMOV_CMOVLE fetch.RRMOV_CMOVNE fetch.RRMOV_RRMOVL fetch.icode_o fetch.ifun_o fetch.imem_error_o fetch.instr fetch.instr_mem fetch.instr_valid_o fetch.need_regids fetch.need_valC fetch.rA_o fetch.rB_o fetch.valC_o fetch.valP_o fetch.valid_ifun } -aggregates  -fid VPD0
+synopsys::dump -add {memory_access_tb.ALU memory_access_tb.CALL memory_access_tb.HALT memory_access_tb.IRMOVL memory_access_tb.JXX memory_access_tb.MRMOVL memory_access_tb.NOP memory_access_tb.POPL memory_access_tb.PUSHL memory_access_tb.RET memory_access_tb.RMMOVL memory_access_tb.RRMOVL memory_access_tb.clk memory_access_tb.dmem_error memory_access_tb.icode memory_access_tb.valA memory_access_tb.valE memory_access_tb.valM memory_access_tb.valP } -aggregates  -fid VPD0
 synopsys::run
 set ucliGUI::state
 set ucliGUI::state
