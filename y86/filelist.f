@@ -6,7 +6,8 @@ decode.v
 execute.v
 //execute_tb.v
 memory_access.v
-memory_access_tb.v
-//writeback.v
-//writeback_tb.v
+//memory_access_tb.v
+write_back.v
+stat.v
+write_back_tb.v
 //cpu_tb.v

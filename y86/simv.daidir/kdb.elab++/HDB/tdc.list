@@ -2,4 +2,6 @@ decode.v
 execute.v
 fetch.v
 memory_access.v
-memory_access_tb.v
+stat.v
+write_back.v
+write_back_tb.v

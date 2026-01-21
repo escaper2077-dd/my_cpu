@@ -2,4 +2,6 @@
 /home/escaper/my_cpu/y86/execute.v
 /home/escaper/my_cpu/y86/fetch.v
 /home/escaper/my_cpu/y86/memory_access.v
-/home/escaper/my_cpu/y86/memory_access_tb.v
+/home/escaper/my_cpu/y86/stat.v
+/home/escaper/my_cpu/y86/write_back.v
+/home/escaper/my_cpu/y86/write_back_tb.v

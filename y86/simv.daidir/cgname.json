@@ -1,4 +1,10 @@
 {
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module",
+        7
+    ],
     "std": [
         "std",
         "reYIK",
@@ -11,9 +17,9 @@
         "module",
         2
     ],
-    "memory_access_tb": [
-        "memory_access_tb",
-        "ZTTB7",
+    "memory_access": [
+        "memory_access",
+        "r7WZg",
         "module",
         5
     ],
@@ -23,9 +29,9 @@
         "module",
         3
     ],
-    "...MASTER...": [
-        "SIM",
-        "amcQw",
+    "write_back_tb": [
+        "write_back_tb",
+        "u19Jv",
         "module",
         6
     ],

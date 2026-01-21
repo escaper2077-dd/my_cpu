@@ -124,13 +124,15 @@ CLUTTER_IM_MODULE=fcitx
 AM_HOME=/home/escaper/ysyx-workbench/abstract-machine
 ALL_PROXY=socks://127.0.0.1:8891/
 0
-8
-1768983171 memory_access_tb.v
+10
+1768985368 write_back_tb.v
+1768985351 stat.v
+1768985385 write_back.v
 1768983641 memory_access.v
 1768566660 execute.v
 1768562680 decode.v
 1768553891 fetch.v
-1768983510 filelist.f
+1768985514 filelist.f
 1550753332 /home/escaper/vcs/verdi/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/verdi.tab
 1551421246 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/vcsdp_lite.tab
 4
@@ -138,5 +140,5 @@ ALL_PROXY=socks://127.0.0.1:8891/
 1551421792 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/liberrorinf.so
 1551421768 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libsnpsmalloc.so
 1551421789 /home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libvfs.so
-1768983727 simv.daidir
+1768985525 simv.daidir
 -1 partitionlib
