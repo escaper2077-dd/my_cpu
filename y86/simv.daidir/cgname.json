@@ -1,15 +1,9 @@
 {
-    "decode": [
-        "decode",
-        "dVBRC",
+    "memory_access_tb": [
+        "memory_access_tb",
+        "ZTTB7",
         "module",
-        3
-    ],
-    "fetch": [
-        "fetch",
-        "Qk6Wn",
-        "module",
-        2
+        5
     ],
     "std": [
         "std",
@@ -17,16 +11,28 @@
         "module",
         1
     ],
-    "execute_tb": [
-        "execute_tb",
-        "Lh6NV",
+    "fetch": [
+        "fetch",
+        "Qk6Wn",
         "module",
-        4
+        2
+    ],
+    "decode": [
+        "decode",
+        "dVBRC",
+        "module",
+        3
     ],
     "...MASTER...": [
         "SIM",
         "amcQw",
         "module",
-        5
+        6
+    ],
+    "execute": [
+        "execute",
+        "sEyU5",
+        "module",
+        4
     ]
 }

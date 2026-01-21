@@ -8,8 +8,8 @@ VCS_FLAGS = -full64 -cpp g++-4.8 -cc gcc-4.8 -LDFLAGS -Wl,--no-as-needed \
 	-timescale=1ns/1ps
 
 # 文件定义
-FETCH_RTL = fetch.v
-FETCH_TB = fetch_tb.v
+# FETCH_RTL = fetch.v
+# FETCH_TB = fetch_tb.v
 
 # 输出目录
 BUILD_DIR = ./build

@@ -1,13 +1,13 @@
 # Begin_DVE_Session_Save_Info
 # DVE full session
-# Saved on Sat Jan 17 10:42:15 2026
+# Saved on Tue Jan 20 22:37:20 2026
 # Designs open: 1
 #   Sim: /home/escaper/my_cpu/y86/simv
 # Toplevel windows open: 1
 # 	TopLevel.1
-#   Source.1: execute
+#   Source.1: fetch
 #   Group count = 1
-#   Group Group1 signal count = 23
+#   Group Group1 signal count = 19
 # End_DVE_Session_Save_Info
 
 # DVE version: O-2018.09-SP2_Full64
@@ -113,23 +113,23 @@ gui_show_toolbar -toolbar {Testbench}
 # End ToolBar settings
 
 # Docked window settings
-set HSPane.1 [gui_create_window -type HSPane -parent ${TopLevel.1} -dock_state left -dock_on_new_line true -dock_extent 226]
+set HSPane.1 [gui_create_window -type HSPane -parent ${TopLevel.1} -dock_state left -dock_on_new_line true -dock_extent 222]
 catch { set Hier.1 [gui_share_window -id ${HSPane.1} -type Hier] }
-gui_set_window_pref_key -window ${HSPane.1} -key dock_width -value_type integer -value 226
+gui_set_window_pref_key -window ${HSPane.1} -key dock_width -value_type integer -value 222
 gui_set_window_pref_key -window ${HSPane.1} -key dock_height -value_type integer -value -1
 gui_set_window_pref_key -window ${HSPane.1} -key dock_offset -value_type integer -value 0
-gui_update_layout -id ${HSPane.1} {{left 0} {top 0} {width 225} {height 1135} {dock_state left} {dock_on_new_line true} {child_hier_colhier 179} {child_hier_coltype 100} {child_hier_colpd 0} {child_hier_col1 0} {child_hier_col2 1} {child_hier_col3 -1}}
-set DLPane.1 [gui_create_window -type DLPane -parent ${TopLevel.1} -dock_state left -dock_on_new_line true -dock_extent 148]
+gui_update_layout -id ${HSPane.1} {{left 0} {top 0} {width 221} {height 1139} {dock_state left} {dock_on_new_line true} {child_hier_colhier 179} {child_hier_coltype 100} {child_hier_colpd 0} {child_hier_col1 0} {child_hier_col2 1} {child_hier_col3 -1}}
+set DLPane.1 [gui_create_window -type DLPane -parent ${TopLevel.1} -dock_state left -dock_on_new_line true -dock_extent 144]
 catch { set Data.1 [gui_share_window -id ${DLPane.1} -type Data] }
-gui_set_window_pref_key -window ${DLPane.1} -key dock_width -value_type integer -value 148
-gui_set_window_pref_key -window ${DLPane.1} -key dock_height -value_type integer -value 1134
+gui_set_window_pref_key -window ${DLPane.1} -key dock_width -value_type integer -value 144
+gui_set_window_pref_key -window ${DLPane.1} -key dock_height -value_type integer -value 1138
 gui_set_window_pref_key -window ${DLPane.1} -key dock_offset -value_type integer -value 0
-gui_update_layout -id ${DLPane.1} {{left 0} {top 0} {width 147} {height 1135} {dock_state left} {dock_on_new_line true} {child_data_colvariable 140} {child_data_colvalue 100} {child_data_coltype 40} {child_data_col1 0} {child_data_col2 1} {child_data_col3 2}}
-set Console.1 [gui_create_window -type Console -parent ${TopLevel.1} -dock_state bottom -dock_on_new_line true -dock_extent 160]
+gui_update_layout -id ${DLPane.1} {{left 0} {top 0} {width 143} {height 1139} {dock_state left} {dock_on_new_line true} {child_data_colvariable 140} {child_data_colvalue 100} {child_data_coltype 40} {child_data_col1 0} {child_data_col2 1} {child_data_col3 2}}
+set Console.1 [gui_create_window -type Console -parent ${TopLevel.1} -dock_state bottom -dock_on_new_line true -dock_extent 156]
 gui_set_window_pref_key -window ${Console.1} -key dock_width -value_type integer -value 2489
-gui_set_window_pref_key -window ${Console.1} -key dock_height -value_type integer -value 160
+gui_set_window_pref_key -window ${Console.1} -key dock_height -value_type integer -value 156
 gui_set_window_pref_key -window ${Console.1} -key dock_offset -value_type integer -value 0
-gui_update_layout -id ${Console.1} {{left 0} {top 0} {width 2489} {height 159} {dock_state bottom} {dock_on_new_line true}}
+gui_update_layout -id ${Console.1} {{left 0} {top 0} {width 2489} {height 155} {dock_state bottom} {dock_on_new_line true}}
 #### Start - Readjusting docked view's offset / size
 set dockAreaList { top left right bottom }
 foreach dockArea $dockAreaList {
@@ -199,38 +199,38 @@ gui_set_time_units 1ps
 # Global: Signal Compare
 
 # Global: Signal Groups
-gui_load_child_values {cpu_tb}
+gui_load_child_values {memory_access_tb}
 
 
 set _session_group_1 Group1
 gui_sg_create "$_session_group_1"
 set Group1 "$_session_group_1"
 
-gui_sg_addsignal -group "$_session_group_1" { cpu_tb.icode_o cpu_tb.ifun_o cpu_tb.rA_o cpu_tb.rB_o cpu_tb.valC_o cpu_tb.valP_o cpu_tb.instr_valid_o cpu_tb.imem_error_o cpu_tb.valA_decode cpu_tb.valB_decode cpu_tb.PC_i cpu_tb.NOP cpu_tb.HALT cpu_tb.RRMOVL cpu_tb.IRMOVL cpu_tb.RMMOVL cpu_tb.MRMOVL cpu_tb.ALU cpu_tb.JXX cpu_tb.CALL cpu_tb.RET cpu_tb.PUSHL cpu_tb.POPL }
-gui_set_radix -radix {decimal} -signals {Sim:cpu_tb.NOP}
-gui_set_radix -radix {unsigned} -signals {Sim:cpu_tb.NOP}
-gui_set_radix -radix {decimal} -signals {Sim:cpu_tb.HALT}
-gui_set_radix -radix {unsigned} -signals {Sim:cpu_tb.HALT}
-gui_set_radix -radix {decimal} -signals {Sim:cpu_tb.RRMOVL}
-gui_set_radix -radix {unsigned} -signals {Sim:cpu_tb.RRMOVL}
-gui_set_radix -radix {decimal} -signals {Sim:cpu_tb.IRMOVL}
-gui_set_radix -radix {unsigned} -signals {Sim:cpu_tb.IRMOVL}
-gui_set_radix -radix {decimal} -signals {Sim:cpu_tb.RMMOVL}
-gui_set_radix -radix {unsigned} -signals {Sim:cpu_tb.RMMOVL}
-gui_set_radix -radix {decimal} -signals {Sim:cpu_tb.MRMOVL}
-gui_set_radix -radix {unsigned} -signals {Sim:cpu_tb.MRMOVL}
-gui_set_radix -radix {decimal} -signals {Sim:cpu_tb.ALU}
-gui_set_radix -radix {unsigned} -signals {Sim:cpu_tb.ALU}
-gui_set_radix -radix {decimal} -signals {Sim:cpu_tb.JXX}
-gui_set_radix -radix {unsigned} -signals {Sim:cpu_tb.JXX}
-gui_set_radix -radix {decimal} -signals {Sim:cpu_tb.CALL}
-gui_set_radix -radix {unsigned} -signals {Sim:cpu_tb.CALL}
-gui_set_radix -radix {decimal} -signals {Sim:cpu_tb.RET}
-gui_set_radix -radix {unsigned} -signals {Sim:cpu_tb.RET}
-gui_set_radix -radix {decimal} -signals {Sim:cpu_tb.PUSHL}
-gui_set_radix -radix {unsigned} -signals {Sim:cpu_tb.PUSHL}
-gui_set_radix -radix {decimal} -signals {Sim:cpu_tb.POPL}
-gui_set_radix -radix {unsigned} -signals {Sim:cpu_tb.POPL}
+gui_sg_addsignal -group "$_session_group_1" { memory_access_tb.valM memory_access_tb.dmem_error memory_access_tb.clk memory_access_tb.icode memory_access_tb.valE memory_access_tb.valA memory_access_tb.valP memory_access_tb.NOP memory_access_tb.HALT memory_access_tb.RRMOVL memory_access_tb.IRMOVL memory_access_tb.RMMOVL memory_access_tb.MRMOVL memory_access_tb.ALU memory_access_tb.JXX memory_access_tb.CALL memory_access_tb.RET memory_access_tb.PUSHL memory_access_tb.POPL }
+gui_set_radix -radix {decimal} -signals {Sim:memory_access_tb.NOP}
+gui_set_radix -radix {unsigned} -signals {Sim:memory_access_tb.NOP}
+gui_set_radix -radix {decimal} -signals {Sim:memory_access_tb.HALT}
+gui_set_radix -radix {unsigned} -signals {Sim:memory_access_tb.HALT}
+gui_set_radix -radix {decimal} -signals {Sim:memory_access_tb.RRMOVL}
+gui_set_radix -radix {unsigned} -signals {Sim:memory_access_tb.RRMOVL}
+gui_set_radix -radix {decimal} -signals {Sim:memory_access_tb.IRMOVL}
+gui_set_radix -radix {unsigned} -signals {Sim:memory_access_tb.IRMOVL}
+gui_set_radix -radix {decimal} -signals {Sim:memory_access_tb.RMMOVL}
+gui_set_radix -radix {unsigned} -signals {Sim:memory_access_tb.RMMOVL}
+gui_set_radix -radix {decimal} -signals {Sim:memory_access_tb.MRMOVL}
+gui_set_radix -radix {unsigned} -signals {Sim:memory_access_tb.MRMOVL}
+gui_set_radix -radix {decimal} -signals {Sim:memory_access_tb.ALU}
+gui_set_radix -radix {unsigned} -signals {Sim:memory_access_tb.ALU}
+gui_set_radix -radix {decimal} -signals {Sim:memory_access_tb.JXX}
+gui_set_radix -radix {unsigned} -signals {Sim:memory_access_tb.JXX}
+gui_set_radix -radix {decimal} -signals {Sim:memory_access_tb.CALL}
+gui_set_radix -radix {unsigned} -signals {Sim:memory_access_tb.CALL}
+gui_set_radix -radix {decimal} -signals {Sim:memory_access_tb.RET}
+gui_set_radix -radix {unsigned} -signals {Sim:memory_access_tb.RET}
+gui_set_radix -radix {decimal} -signals {Sim:memory_access_tb.PUSHL}
+gui_set_radix -radix {unsigned} -signals {Sim:memory_access_tb.PUSHL}
+gui_set_radix -radix {decimal} -signals {Sim:memory_access_tb.POPL}
+gui_set_radix -radix {unsigned} -signals {Sim:memory_access_tb.POPL}
 
 # Global: Highlighting
 
@@ -240,7 +240,7 @@ gui_change_stack_mode -mode list
 # Post database loading setting...
 
 # Restore C1 time
-gui_set_time -C1_only 270
+gui_set_time -C1_only 176
 
 
 
@@ -265,16 +265,16 @@ gui_list_set_filter -id ${Hier.1} -list { {Package 1} {All 0} {Process 1} {VirtP
 gui_list_set_filter -id ${Hier.1} -text {*}
 gui_hier_list_init -id ${Hier.1}
 gui_change_design -id ${Hier.1} -design Sim
-catch {gui_list_select -id ${Hier.1} {cpu_tb}}
+catch {gui_list_select -id ${Hier.1} {memory_access_tb}}
 gui_view_scroll -id ${Hier.1} -vertical -set 0
 gui_view_scroll -id ${Hier.1} -horizontal -set 0
 
 # Data 'Data.1'
 gui_list_set_filter -id ${Data.1} -list { {Buffer 1} {Input 1} {Others 1} {Linkage 1} {Output 1} {LowPower 1} {Parameter 1} {All 1} {Aggregate 1} {LibBaseMember 1} {Event 1} {Assertion 1} {Constant 1} {Interface 1} {BaseMembers 1} {Signal 1} {$unit 1} {Inout 1} {Variable 1} }
 gui_list_set_filter -id ${Data.1} -text {*}
-gui_list_show_data -id ${Data.1} {cpu_tb}
+gui_list_show_data -id ${Data.1} {memory_access_tb}
 gui_show_window -window ${Data.1}
-catch { gui_list_select -id ${Data.1} {cpu_tb.icode_o cpu_tb.ifun_o cpu_tb.rA_o cpu_tb.rB_o cpu_tb.valC_o cpu_tb.valP_o cpu_tb.instr_valid_o cpu_tb.imem_error_o cpu_tb.valA_decode cpu_tb.valB_decode cpu_tb.PC_i cpu_tb.NOP cpu_tb.HALT cpu_tb.RRMOVL cpu_tb.IRMOVL cpu_tb.RMMOVL cpu_tb.MRMOVL cpu_tb.ALU cpu_tb.JXX cpu_tb.CALL cpu_tb.RET cpu_tb.PUSHL cpu_tb.POPL }}
+catch { gui_list_select -id ${Data.1} {memory_access_tb.valM memory_access_tb.dmem_error memory_access_tb.clk memory_access_tb.icode memory_access_tb.valE memory_access_tb.valA memory_access_tb.valP memory_access_tb.NOP memory_access_tb.HALT memory_access_tb.RRMOVL memory_access_tb.IRMOVL memory_access_tb.RMMOVL memory_access_tb.MRMOVL memory_access_tb.ALU memory_access_tb.JXX memory_access_tb.CALL memory_access_tb.RET memory_access_tb.PUSHL memory_access_tb.POPL }}
 gui_view_scroll -id ${Data.1} -vertical -set 0
 gui_view_scroll -id ${Data.1} -horizontal -set 0
 gui_view_scroll -id ${Hier.1} -vertical -set 0
@@ -283,7 +283,7 @@ gui_view_scroll -id ${Hier.1} -horizontal -set 0
 # Source 'Source.1'
 gui_src_value_annotate -id ${Source.1} -switch false
 gui_set_env TOGGLE::VALUEANNOTATE 0
-gui_open_source -id ${Source.1}  -replace -active execute /home/escaper/my_cpu/y86/execute.v
+gui_open_source -id ${Source.1}  -replace -active fetch /home/escaper/my_cpu/y86/fetch.v
 gui_view_scroll -id ${Source.1} -vertical -set 36
 gui_src_set_reusable -id ${Source.1}
 # Restore toplevel window zorder

@@ -1,81 +1,62 @@
 Chronologic VCS simulator copyright 1991-2018
 Contains Synopsys proprietary information.
-Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jan 17 10:42 2026
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jan 21 16:18 2026
 VCD+ Writer O-2018.09-SP2_Full64 Copyright (c) 1991-2018 by Synopsys Inc.
 The file '/home/escaper/my_cpu/y86/inter.vpd' was opened successfully.
-================== Execute Stage Test Cases ==================
+Time=0 | icode=0 | valE=0000000000000000 | valA=0000000000000000 | valM=0000000000000000 | error=0
 
-========== Test 1: ALU ADDL (3 + 5 = 8) ==========
-ADDL 0x3 + 0x5 = 0x0000000000000008 (expected 0x8), Condition Code: ZF=0, SF=0, OF=0
+=== Test 1: RMMOVL (Write to Memory) ===
+Time=20 | icode=4 | valE=0000000000000010 | valA=deadbeefcafebabe | valM=0000000000000000 | error=0
+RMMOVL: Write 0xdeadbeefcafebabe to address 0x0000000000000010
 
-========== Test 2: ALU SUBL (10 - 3 = 7) ==========
-SUBL 0xA - 0x3 = 0x0000000000000007 (expected 0x7), Condition Code: ZF=0, SF=0, OF=0
+=== Test 2: MRMOVL (Read from Memory) ===
+Time=30 | icode=5 | valE=0000000000000010 | valA=0000000000000000 | valM=deadbeefcafebabe | error=0
+MRMOVL: Read from address 0x0000000000000010, value = 0xdeadbeefcafebabe
+PASS: Read correct value
 
-========== Test 3: ALU ANDL (0xFF & 0x0F = 0x0F) ==========
-ANDL 0xFF & 0x0F = 0x000000000000000f (expected 0xF), Condition Code: ZF=0, SF=0, OF=0
+=== Test 3: CALL (Push return address) ===
+Time=40 | icode=8 | valE=0000000000000020 | valA=0000000000000000 | valM=0000000000000000 | error=0
+CALL: Push return address 0x0000000000000200 to stack at 0x0000000000000020
 
-========== Test 4: ALU XORL (0xAA ^ 0x55 = 0xFF) ==========
-XORL 0xAA ^ 0x55 = 0x00000000000000ff (expected 0xFF), Condition Code: ZF=0, SF=0, OF=0
+=== Test 4: RET (Pop return address) ===
+Time=50 | icode=9 | valE=0000000000000000 | valA=0000000000000020 | valM=0000000000000200 | error=0
+RET: Pop return address from 0x0000000000000020, value = 0x0000000000000200
+PASS: Read correct return address
 
-========== Test 5: ALU ADDL Zero Result (5 + (-5) = 0) ==========
-ADDL 0x5 + 0xFFFFFFFFFFFFFFFB = 0x0000000000000000 (expected 0x0), Condition Code: ZF=1, SF=0, OF=0
+=== Test 5: PUSHL (Push value) ===
+Time=60 | icode=a | valE=0000000000000030 | valA=123456789abcdef0 | valM=0000000000000000 | error=0
+PUSHL: Push value 0x123456789abcdef0 to stack at 0x0000000000000030
 
-========== Test 6: ALU ADDL Negative Result (-1 + (-1) = -2) ==========
-ADDL 0xFFFFFFFFFFFFFFFF + 0xFFFFFFFFFFFFFFFF = 0xfffffffffffffffe (expected 0xFFFFFFFFFFFFFFFE), Condition Code: ZF=0, SF=1, OF=0
+=== Test 6: POPL (Pop value) ===
+Time=70 | icode=b | valE=0000000000000000 | valA=0000000000000030 | valM=123456789abcdef0 | error=0
+POPL: Pop value from 0x0000000000000030, value = 0x123456789abcdef0
+PASS: Read correct value from stack
 
-========== Test 7: RRMOVL (Unconditional Move) ==========
-RRMOVL valA=0x0123456789abcdef => valE=0x0123456789abcdef, Cnd=1 (should be 1)
+=== Test 7: NOP (No memory access) ===
+Time=80 | icode=0 | valE=0000000000000000 | valA=0000000000000000 | valM=0000000000000000 | error=0
+NOP: No memory access, valM = 0x0000000000000000
 
-========== Test 8: IRMOVL (Immediate Load) ==========
-IRMOVL valC=0x1234567890abcdef => valE=0x1234567890abcdef
+=== Test 8: Memory Error (Address out of bounds) ===
+Time=90 | icode=5 | valE=0000000000000900 | valA=0000000000000000 | valM=0000000000000000 | error=1
+Memory access to address 0x0000000000000900
+PASS: Memory error detected
 
-========== Test 9: RMMOVL (Store Register to Memory) ==========
-RMMOVL Addr = valB(0x0000000000001000) + valC(0x0000000000000100) = 0x0000000000001100
+=== Test 9: Multiple Read/Write Operations ===
+Time=100 | icode=4 | valE=0000000000000040 | valA=aaaaaaaaaaaaaaaa | valM=0000000000000000 | error=0
+Time=110 | icode=4 | valE=0000000000000048 | valA=bbbbbbbbbbbbbbbb | valM=0000000000000000 | error=0
+Time=120 | icode=4 | valE=0000000000000050 | valA=cccccccccccccccc | valM=0000000000000000 | error=0
+Time=130 | icode=5 | valE=0000000000000040 | valA=cccccccccccccccc | valM=aaaaaaaaaaaaaaaa | error=0
+Read from 0x40: 0xaaaaaaaaaaaaaaaa (expected 0xAAAAAAAAAAAAAAAA)
+Time=140 | icode=5 | valE=0000000000000048 | valA=cccccccccccccccc | valM=bbbbbbbbbbbbbbbb | error=0
+Read from 0x48: 0xbbbbbbbbbbbbbbbb (expected 0xBBBBBBBBBBBBBBBB)
+Time=150 | icode=5 | valE=0000000000000050 | valA=cccccccccccccccc | valM=cccccccccccccccc | error=0
+Read from 0x50: 0xcccccccccccccccc (expected 0xCCCCCCCCCCCCCCCC)
 
-========== Test 10: MRMOVL (Load Register from Memory) ==========
-MRMOVL Addr = valB(0x0000000000002000) + valC(0x0000000000000200) = 0x0000000000002200
-
-========== Test 11: PUSHL (Push to Stack) ==========
-PUSHL RSP = 0x0000000000008000 => New RSP = 0x0000000000007ff8
-
-========== Test 12: POPL (Pop from Stack) ==========
-POPL RSP = 0x0000000000007ff8 => New RSP = 0x0000000000008000
-
-========== Test 13: CALL (Function Call) ==========
-CALL RSP = 0x0000000000008000 => New RSP = 0x0000000000007ff8
-
-========== Test 14: RET (Return from Function) ==========
-RET RSP = 0x0000000000007ff8 => New RSP = 0x0000000000008000
-
-========== Test 15: JMP (Always Jump) ==========
-JMP => Condition = 1 (expected 1)
-
-========== Test 16: JE (Jump if Equal) - ZF=1 ==========
-JE (ZF=1) => Condition = 1 (expected 1)
-
-========== Test 17: JE (Jump if Equal) - ZF=0 ==========
-JE (ZF=0) => Condition = 0 (expected 0)
-
-========== Test 18: JL (Jump if Less) - SF=1 ==========
-JL (SF=1) => Condition = 1 (expected 1)
-
-========== Test 19: JG (Jump if Greater) - SF=0, ZF=0 ==========
-JG (SF=0, ZF=0) => Condition = 1 (expected 1)
-
-========== Test 20: CMOVE (Conditional Move if Equal) - ZF=1 ==========
-CMOVE (ZF=1) => valE=0x0fedcba987654321, Cnd=1 (expected 1)
-
-========== Test 21: CMOVL (Conditional Move if Less) - SF=1 ==========
-CMOVL (SF=1) => valE=0x1111111111111111, Cnd=1 (expected 1)
-
-========== Test 22: CMOVNE (Conditional Move if Not Equal) - ZF=0 ==========
-CMOVNE (ZF=0) => valE=0x2222222222222222, Cnd=1 (expected 1)
-
-================== Test Complete ==================
-$finish called from file "execute_tb.v", line 328.
-$finish at simulation time                  390
-Simulation complete, time is 390 ps.
+=== Memory Access Stage Test Complete ===
+$finish called from file "memory_access_tb.v", line 216.
+$finish at simulation time                  176
+Simulation complete, time is 176 ps.
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 390 ps
-CPU Time:      0.110 seconds;       Data structure size:   0.0Mb
-Sat Jan 17 10:42:52 2026
+Time: 176 ps
+CPU Time:      0.090 seconds;       Data structure size:   0.0Mb
+Wed Jan 21 16:19:01 2026

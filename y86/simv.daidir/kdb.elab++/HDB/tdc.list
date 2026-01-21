@@ -1,4 +1,5 @@
 decode.v
 execute.v
-execute_tb.v
 fetch.v
+memory_access.v
+memory_access_tb.v

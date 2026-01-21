@@ -9,16 +9,16 @@ synopsys::dump -autoflush on -fid VPD0
 set ::dve_fid VPD0
 synUtils::setDVEInitPhase 0
 ucliCore::getToolPID
-synUtils::sendTool -active _icl_setToolSocket /tmp/smlnp0H2NeH
-synUtils::sendTool -active {_icl_start_rpc -version "O-2018.09-SP2_Full64" -sync_file /tmp/vcs_dve_rpc.escaper.20285}
-synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.escaper.20285}
+synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpIdw7OF
+synUtils::sendTool -active {_icl_start_rpc -version "O-2018.09-SP2_Full64" -sync_file /tmp/vcs_dve_rpc.escaper.44833}
+synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.escaper.44833}
 config endofsim noexit
 config onfail enable all
 config syscaddplainmembers
 config syscaddsourcenames
 config syscaddstructtypes
 synopsys::listing -disable
-synopsys::dump -add {execute_tb.ALU execute_tb.ALU_ADDL execute_tb.ALU_ANDL execute_tb.ALU_SUBL execute_tb.ALU_XORL execute_tb.CALL execute_tb.Cnd_o execute_tb.HALT execute_tb.IRMOVL execute_tb.JXX execute_tb.JXX_JE execute_tb.JXX_JG execute_tb.JXX_JGE execute_tb.JXX_JL execute_tb.JXX_JLE execute_tb.JXX_JMP execute_tb.JXX_JNE execute_tb.MRMOVL execute_tb.NOP execute_tb.POPL execute_tb.PUSHL execute_tb.RET execute_tb.RMMOVL execute_tb.RRMOVL execute_tb.RRMOV_CMOVE execute_tb.RRMOV_CMOVG execute_tb.RRMOV_CMOVGE execute_tb.RRMOV_CMOVL execute_tb.RRMOV_CMOVLE execute_tb.RRMOV_CMOVNE execute_tb.RRMOV_RRMOVL execute_tb.clk_i execute_tb.icode_i execute_tb.ifun_i execute_tb.rst_n_i execute_tb.valA_i execute_tb.valB_i execute_tb.valC_i execute_tb.valE_o } -aggregates  -fid VPD0
+synopsys::dump -add {fetch.ALU fetch.ALU_ADDL fetch.ALU_ANDL fetch.ALU_SUBL fetch.ALU_XORL fetch.CALL fetch.HALT fetch.IRMOVL fetch.JXX fetch.JXX_JE fetch.JXX_JG fetch.JXX_JGE fetch.JXX_JL fetch.JXX_JLE fetch.JXX_JMP fetch.JXX_JNE fetch.MRMOVL fetch.NOP fetch.PC_i fetch.POPL fetch.PUSHL fetch.RET fetch.RMMOVL fetch.RRMOVL fetch.RRMOV_CMOVE fetch.RRMOV_CMOVG fetch.RRMOV_CMOVGE fetch.RRMOV_CMOVL fetch.RRMOV_CMOVLE fetch.RRMOV_CMOVNE fetch.RRMOV_RRMOVL fetch.icode_o fetch.ifun_o fetch.imem_error_o fetch.instr fetch.instr_mem fetch.instr_valid_o fetch.need_regids fetch.need_valC fetch.rA_o fetch.rB_o fetch.valC_o fetch.valP_o fetch.valid_ifun } -aggregates  -fid VPD0
 synopsys::run
 set ucliGUI::state
 set ucliGUI::state
