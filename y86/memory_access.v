@@ -1,8 +1,9 @@
 `timescale 1ps/1ps
 
 module memory_access(
-    // Clock
+    // Clock and Reset
     input wire clk_i,
+    input wire rst_n_i,
     
     // Input signals from Execute stage
     input wire [3:0] icode_i,

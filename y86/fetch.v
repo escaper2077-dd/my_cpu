@@ -1,10 +1,14 @@
 `timescale 1ps/1ps
 
 module fetch(
-    //input signal
+    // Clock and Reset
+    input wire clk_i,
+    input wire rst_n_i,
+    
+    // Input signal
     input wire [63:0] PC_i,
     
-    //output signal
+    // Output signals
     output wire [3:0] icode_o,
     output wire [3:0] ifun_o,
     output wire [3:0] rA_o,

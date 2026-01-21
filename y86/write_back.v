@@ -1,6 +1,10 @@
 `timescale 1ps/1ps
 
 module write_back(
+    // Clock and Reset
+    input wire clk_i,
+    input wire rst_n_i,
+    
     // Input signals from Memory Access stage
     input wire [3:0] icode_i,
     input wire [63:0] valE_i,
@@ -22,6 +26,7 @@ module write_back(
 
     // 实例化 stat 模块来确定 CPU 状态
     stat stat_module(
+        .icode_i(icode_i),
         .instr_valid_i(instr_valid_i),
         .imem_error_i(imem_error_i),
         .dmem_error_i(dmem_error_i),
