@@ -1,6 +1,6 @@
 `timescale 1ps/1ps
 
-module cpu_tb();
+module fetch_decode_tb();
 
     // 信号声明
     reg [63:0] PC_i;

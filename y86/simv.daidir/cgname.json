@@ -1,10 +1,4 @@
 {
-    "...MASTER...": [
-        "SIM",
-        "amcQw",
-        "module",
-        7
-    ],
     "std": [
         "std",
         "reYIK",
@@ -17,28 +11,28 @@
         "module",
         2
     ],
-    "memory_access": [
-        "memory_access",
-        "r7WZg",
-        "module",
-        5
-    ],
     "decode": [
         "decode",
         "dVBRC",
         "module",
         3
     ],
-    "write_back_tb": [
-        "write_back_tb",
-        "u19Jv",
+    "fetch_decode_tb": [
+        "fetch_decode_tb",
+        "WuRvi",
+        "module",
+        4
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
         "module",
         6
     ],
-    "execute": [
-        "execute",
-        "sEyU5",
+    "y86_cpu": [
+        "y86_cpu",
+        "htEud",
         "module",
-        4
+        5
     ]
 }

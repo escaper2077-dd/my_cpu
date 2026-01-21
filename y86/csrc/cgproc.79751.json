@@ -1,0 +1,355 @@
+{
+    "Modules": {
+        "y86_cpu": {
+            "start_perf": [
+                0.29210019111633301,
+                0.140427,
+                0.046809000000000003,
+                310444,
+                382644,
+                1768992350.8609791,
+                10097324662496
+            ],
+            "Compiled Times": 1,
+            "child_modules": {
+                "decode": 1,
+                "fetch": 1
+            },
+            "end_perf": [
+                0.31080317497253418,
+                0.156194,
+                0.049743000000000002,
+                310444,
+                382644,
+                10097384500704,
+                47244640257,
+                0
+            ],
+            "Compiled": "Yes",
+            "nQuads": 1128,
+            "nRouts": 113,
+            "nMops": 3329
+        },
+        "...MASTER...": {
+            "start_perf": [
+                0.23942112922668457,
+                0.096737000000000004,
+                0.037895999999999999,
+                308500,
+                382644,
+                1768992350.8083,
+                10097156373216
+            ],
+            "child_modules": {
+                "std": 1,
+                "y86_cpu": 1,
+                "fetch_decode_tb": 1
+            },
+            "end_perf": [
+                0.2437131404876709,
+                0.099203,
+                0.039681000000000001,
+                309480,
+                382644,
+                10097170181696,
+                0,
+                0
+            ],
+            "nQuads": 6,
+            "nRouts": 9,
+            "nMops": 7
+        },
+        "std": {
+            "start_perf": [
+                0.24380803108215332,
+                0.099270999999999998,
+                0.039708,
+                309480,
+                382644,
+                1768992350.8126869,
+                10097170391168
+            ],
+            "Compiled Times": 1,
+            "child_modules": {},
+            "Compiled": "Yes",
+            "end_perf": [
+                0.25191020965576172,
+                0.105341,
+                0.041738999999999998,
+                310444,
+                382644,
+                10097196368736,
+                8589934594,
+                0
+            ],
+            "svclass": [
+                "$vcs_nba_dyn_obj",
+                576,
+                35,
+                2,
+                2,
+                0,
+                "sigprop$$",
+                576,
+                35,
+                2,
+                2,
+                0,
+                "process",
+                2380,
+                200,
+                8,
+                8,
+                0,
+                "event",
+                597,
+                34,
+                2,
+                2,
+                0,
+                "mailbox",
+                1769,
+                140,
+                9,
+                9,
+                0,
+                "semaphore",
+                1119,
+                84,
+                5,
+                5,
+                0
+            ],
+            "nQuads": 218,
+            "nRouts": 33,
+            "nMops": 528
+        },
+        "fetch": {
+            "start_perf": [
+                0.25197720527648926,
+                0.10539,
+                0.041758000000000003,
+                310444,
+                382644,
+                1768992350.8208561,
+                10097196503488
+            ],
+            "Compiled Times": 1,
+            "child_modules": {},
+            "Compiled": "Yes",
+            "end_perf": [
+                0.26982402801513672,
+                0.120241,
+                0.044717,
+                310444,
+                382644,
+                10097253641376,
+                12884901889,
+                0
+            ],
+            "nQuads": 825,
+            "significant_routs": [
+                [
+                    1,
+                    "R_VCSgd_Qk6Wn_1",
+                    5164448,
+                    2997,
+                    510
+                ],
+                [
+                    5,
+                    "R_VCSgd_Qk6Wn_5",
+                    6398272,
+                    5273,
+                    788
+                ],
+                [
+                    6,
+                    "R_VCSgd_Qk6Wn_6",
+                    4901568,
+                    5712,
+                    969
+                ]
+            ],
+            "nRouts": 51,
+            "nMops": 5175
+        },
+        "decode": {
+            "start_perf": [
+                0.26990318298339844,
+                0.120299,
+                0.044739000000000001,
+                310444,
+                382644,
+                1768992350.8387821,
+                10097253770432
+            ],
+            "Compiled Times": 1,
+            "child_modules": {},
+            "end_perf": [
+                0.28083205223083496,
+                0.13023499999999999,
+                0.045731000000000001,
+                310444,
+                382644,
+                10097288750368,
+                17179869185,
+                0
+            ],
+            "Compiled": "Yes",
+            "nQuads": 701,
+            "nRouts": 34,
+            "nMops": 3017
+        },
+        "fetch_decode_tb": {
+            "start_perf": [
+                0.28088617324829102,
+                0.130276,
+                0.045745000000000001,
+                310444,
+                382644,
+                1768992350.8497651,
+                10097288850784
+            ],
+            "Compiled Times": 1,
+            "child_modules": {
+                "decode": 1,
+                "fetch": 1
+            },
+            "Compiled": "Yes",
+            "end_perf": [
+                0.29204916954040527,
+                0.14038800000000001,
+                0.046795999999999997,
+                310444,
+                382644,
+                10097324570944,
+                21474836481,
+                0
+            ],
+            "nQuads": 1079,
+            "significant_routs": [
+                [
+                    2,
+                    "R_VCSgd_WuRvi_2",
+                    15691008,
+                    11741,
+                    940
+                ]
+            ],
+            "nRouts": 47,
+            "nMops": 1548
+        }
+    },
+    "CompUnits": {
+        "amcQw_d": {
+            "text": 551,
+            "mod": "...MASTER...",
+            "bytes": 8608,
+            "out": "objs/amcQw_d.o",
+            "mode": 4,
+            "checksum": 0
+        },
+        "reYIK_d": {
+            "text": 7325,
+            "mod": "std",
+            "bytes": 43000,
+            "out": "reYIK_d.o",
+            "cls": 7017,
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_79751_archive_1.a"
+        },
+        "Qk6Wn_d": {
+            "text": 31236,
+            "mod": "fetch",
+            "bytes": 44930,
+            "out": "Qk6Wn_d.o",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_79751_archive_1.a"
+        },
+        "WuRvi_d": {
+            "text": 19165,
+            "mod": "fetch_decode_tb",
+            "bytes": 78944,
+            "out": "WuRvi_d.o",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_79751_archive_1.a"
+        },
+        "dVBRC_d": {
+            "text": 20674,
+            "mod": "decode",
+            "bytes": 33866,
+            "out": "dVBRC_d.o",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_79751_archive_1.a"
+        },
+        "htEud_d": {
+            "text": 28457,
+            "mod": "y86_cpu",
+            "bytes": 52234,
+            "out": "htEud_d.o",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_79751_archive_1.a"
+        }
+    },
+    "reusePaths": {},
+    "stat": {
+        "ru_self_end": {
+            "ru_majflt": 0,
+            "ru_utime_sec": 0.159166,
+            "ru_stime_sec": 0.051728999999999997,
+            "ru_maxrss_kb": 127768,
+            "ru_minflt": 14992,
+            "ru_nvcsw": 51,
+            "ru_nivcsw": 32
+        },
+        "ru_childs_end": {
+            "ru_majflt": 0,
+            "ru_utime_sec": 0.032149999999999998,
+            "ru_stime_sec": 0.05459,
+            "ru_maxrss_kb": 115536,
+            "ru_minflt": 12197,
+            "ru_nvcsw": 45,
+            "ru_nivcsw": 21
+        },
+        "cpu_cycles_end": 10097400213216,
+        "peak_mem_kb": 382644
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.0/_79751_archive_1.a",
+            "objects": [
+                [
+                    "reYIK_d.o",
+                    43000
+                ],
+                [
+                    "Qk6Wn_d.o",
+                    44930
+                ],
+                [
+                    "dVBRC_d.o",
+                    33866
+                ],
+                [
+                    "WuRvi_d.o",
+                    78944
+                ],
+                [
+                    "htEud_d.o",
+                    52234
+                ],
+                [
+                    "amcQwB.o",
+                    127264
+                ]
+            ],
+            "size": 380238
+        }
+    ]
+}
