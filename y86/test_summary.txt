@@ -1,0 +1,27 @@
+Y86-64 CPU 综合测试结果摘要
+===============================
+
+已成功测试的指令（从 y86_cpu_comp_v2 输出）：
+
+✓ icode=0: NOP
+✓ icode=1: HALT  
+✓ icode=2: RRMOVL (ifun 0-6 全部7种)
+✓ icode=3: IRMOVL
+✓ icode=4: RMMOVL
+✓ icode=5: MRMOVL
+✓ icode=6: ALU (ifun 0-3 全部4种)
+✓ icode=7: JXX - 部分测试
+  - jle (ifun=1): 测试时发现条件码问题，ZF仍为1导致误跳转
+  - 原因：xorq 设置 ZF=1，但 irmovq 不改变条件码
+  - 解决：在 jle 前插入 addq %rcx,%rax 清除 ZF
+✓ icode=8: CALL (修复后 - 需要 srcB=%rsp)
+✓ icode=9: RET (修复后 - 需要 srcA=%rsp, srcB=%rsp)  
+✓ icode=A: PUSHL
+✓ icode=B: POPL
+
+关键修复：
+1. decode.v: CALL/RET 需要读取 %rsp
+2. 测试程序：xorq 后需ALU指令清除ZF，不能用irmovq
+
+当前问题：
+- y86_cpu_comprehensive_tb_v2.v 中 PC=94-104 指令重复定义，需清理

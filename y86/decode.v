@@ -100,20 +100,19 @@ module decode(
             end
             CALL: begin
                 srcA = 4'hF;
-                srcB = 4'hF;
+                srcB = 4'h4;  // CALL需要读取%rsp来计算新栈指针
             end
             RET: begin
-                srcA = 4'hF;
-                srcB = 4'hF;
+                srcA = 4'h4;  // RET需要读取%rsp来读取返回地址
+                srcB = 4'h4;  // 同时也需要%rsp来计算新的栈指针
             end
             PUSHL: begin
-                srcA = rA_i;
-                //srcB = (rB_i == 4'hF) ? 4'h4 : rB_i;  // rB=F时理解为%rsp(4)
-                srcB = 4'h4;                           // srcB总是%rsp(4)，因为PUSHL入栈
+                srcA = rA_i;                           // 读取要入栈的寄存器
+                srcB = 4'h4;                           // srcB总是%rsp(4)，用于计算新栈指针
             end
             POPL: begin
-                srcA = rA_i;                           // rA是目标寄存器
-                srcB = 4'h4;                           // srcB总是%rsp(4)，因为POPL从栈弹出
+                srcA = 4'h4;                           // srcA读取%rsp，用于内存访问
+                srcB = 4'h4;                           // srcB也读取%rsp，用于计算新栈指针
             end
             default: begin
                 srcA = 4'hF;

@@ -1,20 +1,20 @@
 {
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module",
+        3
+    ],
     "std": [
         "std",
         "reYIK",
         "module",
         1
     ],
-    "y86_cpu_full_tb": [
-        "y86_cpu_full_tb",
-        "iYEdR",
+    "y86_cpu_comprehensive_tb_v5": [
+        "y86_cpu_comprehensive_tb_v5",
+        "dqntm",
         "module",
         2
-    ],
-    "...MASTER...": [
-        "SIM",
-        "amcQw",
-        "module",
-        3
     ]
 }

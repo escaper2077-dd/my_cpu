@@ -8,7 +8,7 @@ VSRC=..
 TARGET_ARCH=
 
 # Choose name of executable 
-PRODUCTBASE=$(VSRC)/y86_cpu_comp
+PRODUCTBASE=$(VSRC)/simv
 
 PRODUCT=$(PRODUCTBASE)
 
@@ -31,7 +31,7 @@ VCS_CC=gcc
 # Internal CC for gen_c flow:
 CC_CG=gcc
 # User overrode default CC: 
-VCS_CC=gcc
+VCS_CC=gcc-4.8
 # Loader
 LD=g++
 
@@ -40,16 +40,16 @@ STRIPFLAGS=
 
 PRE_LDFLAGS=  -Wl,--no-as-needed 
 # Loader Flags
-LDFLAGS=-L/usr/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -Wl,--no-as-needed -no-pie -rdynamic  -Wl,-rpath=/home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib -L/home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib 
+LDFLAGS=-L/usr/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -Wl,--no-as-needed -Wl,--no-as-needed -rdynamic  -Wl,-rpath=/home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib -L/home/escaper/vcs/vcs2018/vcs/O-2018.09-SP2/linux64/lib 
 # Picarchive Flags
-PICLDFLAGS=-Wl,-rpath-link=./ -Wl,-rpath='$$ORIGIN'/y86_cpu_comp.daidir/ -Wl,-rpath=./y86_cpu_comp.daidir/ -Wl,-rpath='$$ORIGIN'/y86_cpu_comp.daidir//scsim.db.dir 
+PICLDFLAGS=-Wl,-rpath-link=./ -Wl,-rpath='$$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ -Wl,-rpath='$$ORIGIN'/simv.daidir//scsim.db.dir 
 
 # C run time startup
 CRT0=
 # C run time startup
 CRTN=
 # Machine specific libraries
-SYSLIBS=-ldl  -lc -lm -lpthread -ldl
+SYSLIBS=/home/escaper/vcs/verdi/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/pli.a -ldl  -lc -lm -lpthread -ldl
 
 # Default defines
 SHELL=/bin/sh

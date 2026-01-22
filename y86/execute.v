@@ -63,11 +63,13 @@ module execute(
     wire [63:0] alu_out;
     
     // ==================== ALU实现 ====================
-    // 根据ifun选择ALU操作
-    assign alu_out = (ifun_i == ALU_ADDL) ? (valA_i + valB_i) :
-                     (ifun_i == ALU_SUBL) ? (valA_i - valB_i) :
-                     (ifun_i == ALU_ANDL) ? (valA_i & valB_i) :
-                     (ifun_i == ALU_XORL) ? (valA_i ^ valB_i) :
+    // Y86-64 ALU指令语义：OPq rA, rB  =>  R[rB] = R[rB] OP R[rA]
+    // 输入：valA = R[rA], valB = R[rB]
+    // 运算：valB OP valA（注意操作数顺序！）
+    assign alu_out = (ifun_i == ALU_ADDL) ? (valB_i + valA_i) :
+                     (ifun_i == ALU_SUBL) ? (valB_i - valA_i) :
+                     (ifun_i == ALU_ANDL) ? (valB_i & valA_i) :
+                     (ifun_i == ALU_XORL) ? (valB_i ^ valA_i) :
                      64'b0;
     
     // ==================== 条件码更新 (时序逻辑) ====================
@@ -84,15 +86,17 @@ module execute(
             SF <= alu_out[63];
             
             // Overflow Flag - 检查加法或减法的溢出
+            // 注意：运算是 valB OP valA
             if (ifun_i == ALU_ADDL) begin
-                // 加法溢出：两个同号数相加，结果符号不同
-                OF <= (~valA_i[63] & ~valB_i[63] & alu_out[63]) | 
-                      (valA_i[63] & valB_i[63] & ~alu_out[63]);
+                // 加法溢出：valB + valA，两个同号数相加，结果符号不同
+                OF <= (~valB_i[63] & ~valA_i[63] & alu_out[63]) | 
+                      (valB_i[63] & valA_i[63] & ~alu_out[63]);
             end
             else if (ifun_i == ALU_SUBL) begin
-                // 减法溢出：A>0, B<0，结果<0；或 A<0, B>0，结果>0
-                OF <= (~valA_i[63] & valB_i[63] & alu_out[63]) |
-                      (valA_i[63] & ~valB_i[63] & ~alu_out[63]);
+                // 减法溢出：valB - valA
+                // B>0, A<0，结果<0（正减负溢出）；或 B<0, A>0，结果>0（负减正溢出）
+                OF <= (~valB_i[63] & valA_i[63] & alu_out[63]) |
+                      (valB_i[63] & ~valA_i[63] & ~alu_out[63]);
             end
             else begin
                 OF <= 1'b0;  // ANDL和XORL不产生溢出

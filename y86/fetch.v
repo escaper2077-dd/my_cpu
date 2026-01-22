@@ -105,10 +105,12 @@ module fetch(
     assign rB_o = need_regids ? instr_mem[PC_i + 1][3:0] : 4'hF;
     
     // Extract valC based on need_valC and need_regids - 64位常数从PC+1或PC+2开始
-    assign valC_o = need_regids ? {instr_mem[PC_i + 9], instr_mem[PC_i + 8], instr_mem[PC_i + 7], instr_mem[PC_i + 6], 
-                                    instr_mem[PC_i + 5], instr_mem[PC_i + 4], instr_mem[PC_i + 3], instr_mem[PC_i + 2]} :
-                                   {instr_mem[PC_i + 8], instr_mem[PC_i + 7], instr_mem[PC_i + 6], instr_mem[PC_i + 5],
-                                    instr_mem[PC_i + 4], instr_mem[PC_i + 3], instr_mem[PC_i + 2], instr_mem[PC_i + 1]};
+    // 当 need_valC=0 时，输出 0（避免显示垃圾值）
+    assign valC_o = need_valC ? (need_regids ? {instr_mem[PC_i + 9], instr_mem[PC_i + 8], instr_mem[PC_i + 7], instr_mem[PC_i + 6], 
+                                                 instr_mem[PC_i + 5], instr_mem[PC_i + 4], instr_mem[PC_i + 3], instr_mem[PC_i + 2]} :
+                                                {instr_mem[PC_i + 8], instr_mem[PC_i + 7], instr_mem[PC_i + 6], instr_mem[PC_i + 5],
+                                                 instr_mem[PC_i + 4], instr_mem[PC_i + 3], instr_mem[PC_i + 2], instr_mem[PC_i + 1]})
+                              : 64'h0;
     
     // Calculate valP - PC + 1 + need_regids + 8*need_valC
     assign valP_o = PC_i + 1 + need_regids + (need_valC ? 8 : 0);

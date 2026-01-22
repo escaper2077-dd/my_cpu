@@ -14,5 +14,10 @@ stat.v
 pc_update.v
 y86_cpu.v
 //y86_cpu_tb.v
-y86_cpu_full_tb.v
+//y86_cpu_full_tb.v
+//y86_cpu_comprehensive_tb.v
+//y86_cpu_comprehensive_tb_v2.v
+//y86_cpu_comprehensive_tb_v3.v
+//y86_cpu_comprehensive_tb_v4.v
+y86_cpu_comprehensive_tb_v5.v
 
