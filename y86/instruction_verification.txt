@@ -1,0 +1,155 @@
+===== 详细指令验证 =====
+
+【寄存器初始化部分】
+1. PC=0x00: nop
+   ✓ icode=0, valP=0x01, npc=0x01
+
+2. PC=0x01: irmovq $200, %rsp
+   ✓ icode=3, rB=4, valC=0xc8(200), valE=0xc8, npc=0x0b
+
+3. PC=0x0b: irmovq $10, %rax
+   ✓ icode=3, rB=0, valC=0x0a(10), valE=0x0a, npc=0x15
+
+4. PC=0x15: irmovq $20, %rbx
+   ✓ icode=3, rB=3, valC=0x14(20), valE=0x14, npc=0x1f
+
+5. PC=0x1f: irmovq $5, %rcx
+   ✓ icode=3, rB=1, valC=0x05, valE=0x05, npc=0x29
+
+6. PC=0x29: irmovq $99, %rsi
+   ✓ icode=3, rB=6, valC=0x63(99), valE=0x63, npc=0x33
+
+7-12. PC=0x33-0x65: irmovq 初始化 r8-r13
+   ✓ r8=0x108, r9=0x109, r10=0x10a, r11=0x10b, r12=0x10c, r13=0x10d
+
+【RRMOVL & ALU 部分】
+13. PC=0x6f: rrmovq %rax, %rdx
+   ✓ icode=2, ifun=0, rA=0, rB=2, valA=0x0a, valE=0x0a, Cnd=1, npc=0x71
+
+14. PC=0x71: addq %rbx, %rax (10+20=30)
+   ✓ icode=6, ifun=0, valA=0x14, valB=0x0a, valE=0x1e(30), npc=0x73
+
+15. PC=0x73: subq %rcx, %rax (30-5=25)
+   ✓ icode=6, ifun=1, valA=0x05, valB=0x1e, valE=0x19(25), npc=0x75
+   ✓ 下一周期 CC: ZF=0, SF=0, OF=0
+
+16. PC=0x75: andq %rbx, %rax (0x19 & 0x14 = 0x10 = 16)
+   ✓ icode=6, ifun=2, valA=0x14, valB=0x19, valE=0x10, npc=0x77
+
+17. PC=0x77: xorq %rax, %rax (16^16=0)
+   ✓ icode=6, ifun=3, valA=0x10, valB=0x10, valE=0x00, npc=0x79
+   ✓ 下一周期 CC: ZF=1, SF=0, OF=0
+
+【CMOVxx 测试部分 - CC={ZF=1, SF=0, OF=0}】
+18. PC=0x79: cmovle %rsi, %r8 [(SF^OF)|ZF = 1 → 应移动]
+   ✓ icode=2, ifun=1, rA=6, rB=8, valA=0x63, Cnd=1, npc=0x7b
+
+19. PC=0x7b: cmovl %rsi, %r9 [SF^OF = 0 → 不移动]
+   ✓ icode=2, ifun=2, rA=6, rB=9, valA=0x63, Cnd=0, npc=0x7d
+
+20. PC=0x7d: cmove %rsi, %r10 [ZF = 1 → 应移动]
+   ✓ icode=2, ifun=3, rA=6, rB=a, valA=0x63, Cnd=1, npc=0x7f
+
+21. PC=0x7f: cmovne %rsi, %r11 [~ZF = 0 → 不移动]
+   ✓ icode=2, ifun=4, rA=6, rB=b, valA=0x63, Cnd=0, npc=0x81
+
+22. PC=0x81: cmovge %rsi, %r12 [~(SF^OF) = 1 → 应移动]
+   ✓ icode=2, ifun=5, rA=6, rB=c, valA=0x63, Cnd=1, npc=0x83
+
+23. PC=0x83: cmovg %rsi, %r13 [~(SF^OF)&~ZF = 0 → 不移动]
+   ✓ icode=2, ifun=6, rA=6, rB=d, valA=0x63, Cnd=0, npc=0x85
+
+【RMMOVL & MRMOVL 部分】
+24. PC=0x85: rmmovq %rsi, 16(%rsp) [存储99到地址0xd8]
+   ✓ icode=4, rA=6, rB=4, valC=0x10, valA=0x63, valB=0xc8
+   ✓ valE=0xd8(200+16=216), npc=0x8f
+
+25. PC=0x8f: mrmovq 16(%rsp), %rdi [从地址0xd8加载]
+   ✓ icode=5, rA=7, rB=4, valC=0x10, valB=0xc8
+   ✓ valE=0xd8, valM=0x63(99), npc=0x99
+
+【跳转准备部分】
+26. PC=0x99: irmovq $0, %rbp
+   ✓ icode=3, rB=5, valC=0x00, valE=0x00, npc=0xa3
+
+27. PC=0xa3: irmovq $1, %r14
+   ✓ icode=3, rB=e, valC=0x01, valE=0x01, npc=0xad
+
+28. PC=0xad: irmovq $30, %rax
+   ✓ icode=3, rB=0, valC=0x1e, valE=0x1e, npc=0xb7
+
+29. PC=0xb7: subq %rbx, %rax (30-20=10)
+   ✓ icode=6, ifun=1, valA=0x14, valB=0x1e, valE=0x0a, npc=0xb9
+   ✓ 下一周期 CC: ZF=0, SF=0, OF=0
+
+【JXX 测试部分 - CC={ZF=0, SF=0, OF=0}】
+30. PC=0xb9: jle 0xc4 [(SF^OF)|ZF = 0 → 不跳转]
+   ✓ icode=7, ifun=1, valC=0xc4, valP=0xc2, Cnd=0, npc=0xc2
+
+31. PC=0xc2: addq %r14, %rbp (0+1=1)
+   ✓ icode=6, ifun=0, valA=0x01, valB=0x00, valE=0x01, npc=0xc4
+
+32. PC=0xc4: jl 0xcf [SF^OF = 0 → 不跳转]
+   ✓ icode=7, ifun=2, valC=0xcf, valP=0xcd, Cnd=0, npc=0xcd
+
+33. PC=0xcd: addq %r14, %rbp (1+1=2)
+   ✓ icode=6, ifun=0, valA=0x01, valB=0x01, valE=0x02, npc=0xcf
+
+34. PC=0xcf: je 0xda [ZF = 0 → 不跳转]
+   ✓ icode=7, ifun=3, valC=0xda, valP=0xd8, Cnd=0, npc=0xd8
+
+35. PC=0xd8: addq %r14, %rbp (2+1=3)
+   ✓ icode=6, ifun=0, valA=0x01, valB=0x02, valE=0x03, npc=0xda
+
+36. PC=0xda: jne 0xe5 [~ZF = 1 → 应跳转]
+   ✓ icode=7, ifun=4, valC=0xe5, valP=0xe3, Cnd=1, npc=0xe5
+
+37. PC=0xe5: jge 0xf0 [~(SF^OF) = 1 → 应跳转]
+   ✓ icode=7, ifun=5, valC=0xf0, valP=0xee, Cnd=1, npc=0xf0
+
+38. PC=0xf0: jg 0xfb [~(SF^OF)&~ZF = 1 → 应跳转]
+   ✓ icode=7, ifun=6, valC=0xfb, valP=0xf9, Cnd=1, npc=0xfb
+
+39. PC=0xfb: jmp 0x106 [无条件跳转]
+   ✓ icode=7, ifun=0, valC=0x106, valP=0x104, Cnd=1, npc=0x106
+
+【PUSHL, POPL, CALL, RET 部分】
+40. PC=0x106: pushq %rsi [压入99, rsp: 200→192]
+   ✓ icode=a, rA=6, valA=0x63, valB=0xc8(200)
+   ✓ valE=0xc0(192), npc=0x108
+
+41. PC=0x108: irmovq $123, %rsi
+   ✓ icode=3, rB=6, valC=0x7b(123), valE=0x7b, npc=0x112
+
+42. PC=0x112: popq %r14 [弹出99, rsp: 192→200]
+   ✓ icode=b, rA=e, valB=0xc0(192), valE=0xc8(200)
+   ✓ valM=0x63(99), npc=0x114
+
+43. PC=0x114: call 0x120 [压入返回地址0x11d, rsp: 200→192]
+   ✓ icode=8, valC=0x120, valP=0x11d, valB=0xc8
+   ✓ valE=0xc0, npc=0x120
+
+44. PC=0x120: ret [弹出返回地址, rsp: 192→200, 跳转到0x11d]
+   ✓ icode=9, valB=0xc0, valE=0xc8
+   ✓ valM=0x11d, npc=0x11d
+
+45. PC=0x11d: halt
+   ✓ icode=1, valP=0x11e, npc=0x11e, Stat=01
+
+===== 验证结论 =====
+✅ 所有45条指令的PC值、icode、ifun、寄存器操作数、立即数、计算结果、条件标志、下一PC全部正确！
+✅ 条件码(ZF/SF/OF)在流水线中的传播和使用正确
+✅ 条件移动和条件跳转的Cnd信号完全正确
+✅ 内存读写地址和数据完全正确
+✅ 栈操作(pushq/popq/call/ret)的地址计算和数据传输完全正确
+✅ CPU最终状态为HALT(Stat=01)，PC停在0x11d
+
+【关键验证点】
+• ALU运算: 10+20=30, 30-5=25, 25&20=16, 16^16=0 ✓
+• 条件码: xorq后ZF=1, subq后ZF=0 ✓
+• 条件移动: 6个cmovxx指令的Cnd信号与CC状态匹配 ✓
+• 条件跳转: 7个jxx指令的Cnd信号与CC状态匹配，rbp=3 ✓
+• 内存操作: 地址0xd8写入99，读取99 ✓
+• 栈操作: pushq/popq配对，call/ret配对，栈指针正确 ✓
+
+没有发现任何错误！

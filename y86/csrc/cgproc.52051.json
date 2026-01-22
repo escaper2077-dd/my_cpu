@@ -1,0 +1,212 @@
+{
+    "Modules": {
+        "y86_cpu_comprehensive_tb_v6": {
+            "nMops": 18048,
+            "start_perf": [
+                0.25084209442138672,
+                0.095568,
+                0.056743000000000002,
+                310564,
+                382504,
+                1769096238.023823,
+                10800574835712
+            ],
+            "child_modules": {},
+            "Compiled": "Yes",
+            "Compiled Times": 1,
+            "nQuads": 5251,
+            "nRouts": 204,
+            "significant_routs": [
+                [
+                    17,
+                    "R_VCSgd_Nc48g_11",
+                    -1449042720,
+                    2153,
+                    375
+                ],
+                [
+                    43,
+                    "R_VCSgd_Nc48g_2b",
+                    51118336,
+                    56079,
+                    8008
+                ]
+            ],
+            "end_perf": [
+                0.30902695655822754,
+                0.14763999999999999,
+                0.062845999999999999,
+                310564,
+                382504,
+                10799309077248,
+                47244640257,
+                0
+            ]
+        },
+        "...MASTER...": {
+            "nMops": 0,
+            "start_perf": [
+                0.24201798439025879,
+                0.091912999999999995,
+                0.051574000000000002,
+                308620,
+                382504,
+                1769096238.0149989,
+                10800546657120
+            ],
+            "child_modules": {
+                "y86_cpu_comprehensive_tb_v6": 1,
+                "std": 1
+            },
+            "end_perf": [
+                0.24423408508300781,
+                0.091912999999999995,
+                0.053788999999999997,
+                309600,
+                382504,
+                10800553760992,
+                0,
+                0
+            ],
+            "nRouts": 5,
+            "nQuads": 0
+        },
+        "std": {
+            "nMops": 528,
+            "start_perf": [
+                0.24429702758789062,
+                0.091912999999999995,
+                0.053852999999999998,
+                309600,
+                382504,
+                1769096238.017278,
+                10800553923072
+            ],
+            "svclass": [
+                "$vcs_nba_dyn_obj",
+                576,
+                35,
+                2,
+                2,
+                0,
+                "sigprop$$",
+                576,
+                35,
+                2,
+                2,
+                0,
+                "process",
+                2380,
+                200,
+                8,
+                8,
+                0,
+                "event",
+                597,
+                34,
+                2,
+                2,
+                0,
+                "mailbox",
+                1769,
+                140,
+                9,
+                9,
+                0,
+                "semaphore",
+                1119,
+                84,
+                5,
+                5,
+                0
+            ],
+            "child_modules": {},
+            "Compiled": "Yes",
+            "Compiled Times": 1,
+            "end_perf": [
+                0.25078201293945312,
+                0.095530000000000004,
+                0.056721000000000001,
+                310564,
+                382504,
+                10800574717664,
+                8589934594,
+                0
+            ],
+            "nQuads": 218,
+            "nRouts": 33
+        }
+    },
+    "CompUnits": {
+        "amcQw_d": {
+            "checksum": 0,
+            "mod": "...MASTER...",
+            "bytes": 7848,
+            "out": "objs/amcQw_d.o",
+            "text": 434,
+            "mode": 4
+        },
+        "reYIK_d": {
+            "checksum": 0,
+            "mod": "std",
+            "bytes": 43000,
+            "out": "reYIK_d.o",
+            "text": 7325,
+            "cls": 7017,
+            "archive": "archive.0/_52051_archive_1.a",
+            "mode": 4
+        },
+        "Nc48g_d": {
+            "checksum": 0,
+            "mod": "y86_cpu_comprehensive_tb_v6",
+            "bytes": 234920,
+            "out": "Nc48g_d.o",
+            "text": 131355,
+            "archive": "archive.0/_52051_archive_1.a",
+            "mode": 4
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.0/_52051_archive_1.a",
+            "objects": [
+                [
+                    "reYIK_d.o",
+                    43000
+                ],
+                [
+                    "Nc48g_d.o",
+                    234920
+                ],
+                [
+                    "amcQwB.o",
+                    150320
+                ]
+            ],
+            "size": 428240
+        }
+    ],
+    "reusePaths": {},
+    "stat": {
+        "cpu_cycles_end": 10799321757888,
+        "ru_self_end": {
+            "ru_stime_sec": 0.063849000000000003,
+            "ru_utime_sec": 0.150644,
+            "ru_maxrss_kb": 131360,
+            "ru_minflt": 16143,
+            "ru_majflt": 0,
+            "ru_nvcsw": 55,
+            "ru_nivcsw": 29
+        },
+        "ru_childs_end": {
+            "ru_stime_sec": 0.057431000000000003,
+            "ru_utime_sec": 0.025936000000000001,
+            "ru_maxrss_kb": 116972,
+            "ru_minflt": 12293,
+            "ru_majflt": 0,
+            "ru_nvcsw": 47,
+            "ru_nivcsw": 32
+        },
+        "peak_mem_kb": 382504
+    }
+}

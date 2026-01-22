@@ -6,4 +6,4 @@ pc_update.v
 stat.v
 write_back.v
 y86_cpu.v
-y86_cpu_comprehensive_tb_v5.v
+y86_cpu_comprehensive_tb_v6.v

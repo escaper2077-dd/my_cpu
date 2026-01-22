@@ -1,19 +1,19 @@
 {
-    "...MASTER...": [
-        "SIM",
-        "amcQw",
-        "module",
-        3
-    ],
     "std": [
         "std",
         "reYIK",
         "module",
         1
     ],
-    "y86_cpu_comprehensive_tb_v5": [
-        "y86_cpu_comprehensive_tb_v5",
-        "dqntm",
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module",
+        3
+    ],
+    "y86_cpu_comprehensive_tb_v6": [
+        "y86_cpu_comprehensive_tb_v6",
+        "Nc48g",
         "module",
         2
     ]

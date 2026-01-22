@@ -37,23 +37,23 @@ module decode(
     // 寄存器文件
     reg [63:0] regfile[14:0];  // 15个寄存器 (RAX-R14, %r15不存储)
 
-    // 寄存器初始化
+    // 寄存器初始化 - 全部为0，测试程序需显式初始化
     initial begin
         regfile[0]  = 64'd0;     // %rax
-        regfile[1]  = 64'd1;     // %rcx
-        regfile[2]  = 64'd2;     // %rdx
-        regfile[3]  = 64'd3;     // %rbx
-        regfile[4]  = 64'd4;     // %rsp
-        regfile[5]  = 64'd5;     // %rbp
-        regfile[6]  = 64'd6;     // %rsi
-        regfile[7]  = 64'd7;     // %rdi
-        regfile[8]  = 64'd8;     // %r8
-        regfile[9]  = 64'd9;     // %r9
-        regfile[10] = 64'd10;    // %r10
-        regfile[11] = 64'd11;    // %r11
-        regfile[12] = 64'd12;    // %r12
-        regfile[13] = 64'd13;    // %r13
-        regfile[14] = 64'd14;    // %r14
+        regfile[1]  = 64'd0;     // %rcx
+        regfile[2]  = 64'd0;     // %rdx
+        regfile[3]  = 64'd0;     // %rbx
+        regfile[4]  = 64'd0;     // %rsp
+        regfile[5]  = 64'd0;     // %rbp
+        regfile[6]  = 64'd0;     // %rsi
+        regfile[7]  = 64'd0;     // %rdi
+        regfile[8]  = 64'd0;     // %r8
+        regfile[9]  = 64'd0;     // %r9
+        regfile[10] = 64'd0;     // %r10
+        regfile[11] = 64'd0;     // %r11
+        regfile[12] = 64'd0;     // %r12
+        regfile[13] = 64'd0;     // %r13
+        regfile[14] = 64'd0;     // %r14
     end
 
     // 根据指令类型读取寄存器 - 使用case语句选择srcA和srcB
