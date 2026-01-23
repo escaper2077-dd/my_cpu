@@ -1,0 +1,13 @@
+/home/escaper/my_cpu/pipelined_y86/ex_mem_reg.v
+/home/escaper/my_cpu/pipelined_y86/hazard_control.v
+/home/escaper/my_cpu/pipelined_y86/id_ex_reg.v
+/home/escaper/my_cpu/pipelined_y86/if_id_reg.v
+/home/escaper/my_cpu/pipelined_y86/mem_wb_reg.v
+/home/escaper/my_cpu/pipelined_y86/pipe_decode.v
+/home/escaper/my_cpu/pipelined_y86/pipe_execute.v
+/home/escaper/my_cpu/pipelined_y86/pipe_fetch.v
+/home/escaper/my_cpu/pipelined_y86/pipe_memory.v
+/home/escaper/my_cpu/pipelined_y86/pipe_pc_select.v
+/home/escaper/my_cpu/pipelined_y86/pipe_writeback.v
+/home/escaper/my_cpu/pipelined_y86/pipelined_y86_cpu.v
+/home/escaper/my_cpu/pipelined_y86/pipelined_y86_cpu_tb.v
