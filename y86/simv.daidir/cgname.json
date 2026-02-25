@@ -5,16 +5,16 @@
         "module",
         1
     ],
-    "...MASTER...": [
-        "SIM",
-        "amcQw",
-        "module",
-        3
-    ],
     "y86_cpu_comprehensive_tb_v6": [
         "y86_cpu_comprehensive_tb_v6",
         "Nc48g",
         "module",
         2
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module",
+        3
     ]
 }

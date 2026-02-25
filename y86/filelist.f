@@ -1,4 +1,5 @@
 // Y86-64 File List for VCS Compilation
+data_memory.v
 fetch.v
 //fetch_tb.v
 decode.v

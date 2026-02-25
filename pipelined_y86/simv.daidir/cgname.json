@@ -5,9 +5,9 @@
         "module",
         1
     ],
-    "pipelined_y86_cpu_tb": [
-        "pipelined_y86_cpu_tb",
-        "dH8PI",
+    "pipelined_y86_comprehensive_tb": [
+        "pipelined_y86_comprehensive_tb",
+        "NTTAm",
         "module",
         2
     ],

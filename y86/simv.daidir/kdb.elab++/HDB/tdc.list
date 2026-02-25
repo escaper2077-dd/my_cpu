@@ -1,3 +1,4 @@
+data_memory.v
 decode.v
 execute.v
 fetch.v

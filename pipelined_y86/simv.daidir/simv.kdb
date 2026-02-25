@@ -7,7 +7,7 @@ UUM=FALSE
 KDB=FALSE
 USE_NOVAS_HOME=FALSE
 COSIM=FALSE
-TOP=pipelined_y86_cpu_tb 
+TOP=pipelined_y86_comprehensive_tb 
 OPTION=-ssv -ssy 
 ELAB_OPTION=-ssv -ssy 
 

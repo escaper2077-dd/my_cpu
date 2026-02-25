@@ -35,13 +35,30 @@ module memory_access(
     reg mem_write;               // 内存写使能
     reg [63:0] mem_addr;         // 内存地址
     reg [63:0] mem_data_in;      // 写入内存的数据
-    //wire [63:0] mem_data_out;    // 从内存读出的数据
+    wire [63:0] mem_data_out;    // 从内存读出的数据
+    wire mem_error;              // 内存错误信号
 
-    // 数据内存实例（简化实现，实际应该是一个独立的RAM模块）
-    reg [63:0] data_memory [0:255];  // 256个64位字的数据内存
+    // 数据内存实例（独立的RAM模块）
+    data_memory dmem_inst(
+        .clk_i(clk_i),
+        .rst_n_i(rst_n_i),
+        
+        // 读端口
+        .r_en_i(mem_read),
+        .r_addr_i(mem_addr),
+        .r_data_o(mem_data_out),
+        
+        // 写端口
+        .w_en_i(mem_write),
+        .w_addr_i(mem_addr),
+        .w_data_i(mem_data_in),
+        
+        // 错误信号
+        .error_o(mem_error)
+    );
     
-    // 错误检测（地址越界检测）
-    assign dmem_error_o = (mem_read || mem_write) && (mem_addr > 64'd2047);
+    // 错误信号输出
+    assign dmem_error_o = mem_error;
 
     // 确定内存操作类型和地址
     always @(*) begin
@@ -103,27 +120,12 @@ module memory_access(
         endcase
     end
 
-    // 内存读操作
+    // 内存读操作（使用RAM模块的输出）
     always @(*) begin
         if (mem_read && !dmem_error_o) begin
-            valM_o = data_memory[mem_addr[10:3]];  // 使用字地址访问（64位对齐，8位索引0-255）
+            valM_o = mem_data_out;
         end else begin
             valM_o = 64'b0;
-        end
-    end
-
-    // 内存写操作（同步）
-    always @(posedge clk_i) begin
-        if (mem_write && !dmem_error_o) begin
-            data_memory[mem_addr[10:3]] <= mem_data_in;
-        end
-    end
-
-    // 初始化内存（用于测试）
-    integer i;
-    initial begin
-        for (i = 0; i < 256; i = i + 1) begin
-            data_memory[i] = 64'b0;
         end
     end
 
