@@ -136,6 +136,15 @@ module pipelined_y86_cpu(
         .D_rB(D_rB),
         .D_valC(D_valC),
         .D_valP(D_valP),
+        // E阶段转发
+        .e_dstE(e_dstE),
+        .e_valE(e_valE),
+        // M阶段转发
+        .M_dstE(M_dstE),
+        .m_dstM(m_dstM),
+        .M_valE(M_valE),
+        .m_valM(m_valM),
+        // W阶段写回
         .W_dstE(W_dstE),
         .W_valE(W_valE),
         .W_dstM(W_dstM),

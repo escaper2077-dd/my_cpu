@@ -15,6 +15,16 @@ module pipe_stage_decode(
     input wire [63:0] D_valC,
     input wire [63:0] D_valP,
     
+    // 来自E阶段的转发数据
+    input wire [3:0] e_dstE,
+    input wire [63:0] e_valE,
+    
+    // 来自M阶段的转发数据
+    input wire [3:0] M_dstE,
+    input wire [3:0] m_dstM,    // 注意：M阶段输出，不是M/W寄存器
+    input wire [63:0] M_valE,
+    input wire [63:0] m_valM,    // 注意：M阶段输出，不是M/W寄存器
+    
     // 来自W阶段的写回信号
     input wire [3:0] W_dstE,
     input wire [3:0] W_dstM,
@@ -142,8 +152,34 @@ module pipe_stage_decode(
     assign rvalA = (srcA == 4'hF) ? 64'h0 : reg_file[srcA];
     assign rvalB = (srcB == 4'hF) ? 64'h0 : reg_file[srcB];
     
-    assign d_valA = rvalA;
-    assign d_valB = rvalB;
+    // ============ Sel+Fwd - D阶段数据转发逻辑 ============
+    // 转发优先级：e_valE > M_valE > m_valM > W_valE > W_valM > 寄存器文件
+    
+    // d_valA 转发选择
+    wire [63:0] fwd_valA;
+    assign fwd_valA = (srcA != 4'hF && srcA == e_dstE) ? e_valE :
+                      (srcA != 4'hF && srcA == M_dstE) ? M_valE :
+                      (srcA != 4'hF && srcA == m_dstM) ? m_valM :
+                      (srcA != 4'hF && srcA == W_dstE) ? W_valE :
+                      (srcA != 4'hF && srcA == W_dstM) ? W_valM :
+                      rvalA;
+    
+    // d_valB 转发选择
+    wire [63:0] fwd_valB;
+    assign fwd_valB = (srcB != 4'hF && srcB == e_dstE) ? e_valE :
+                      (srcB != 4'hF && srcB == M_dstE) ? M_valE :
+                      (srcB != 4'hF && srcB == m_dstM) ? m_valM :
+                      (srcB != 4'hF && srcB == W_dstE) ? W_valE :
+                      (srcB != 4'hF && srcB == W_dstM) ? W_valM :
+                      rvalB;
+    
+    // 最终的 valA 选择：CALL 和 JXX 指令需要 valP
+    // - CALL: valP 是返回地址，需要压栈
+    // - JXX: valP 是顺序地址（不跳转时的下一条指令地址）
+    assign d_valA = (D_icode == CALL || D_icode == JXX) ? D_valP : fwd_valA;
+    
+    // 最终的 valB 选择（目前直接使用转发后的值）
+    assign d_valB = fwd_valB;
     
     // ============ 寄存器写回 ============
     always @(posedge clk_i) begin
