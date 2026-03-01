@@ -1,0 +1,10 @@
+/home/escaper/my_cpu/riscv/data_memory.v
+/home/escaper/my_cpu/riscv/decode.v
+/home/escaper/my_cpu/riscv/execute.v
+/home/escaper/my_cpu/riscv/fetch.v
+/home/escaper/my_cpu/riscv/memory_access.v
+/home/escaper/my_cpu/riscv/pc_update.v
+/home/escaper/my_cpu/riscv/riscv_cpu.v
+/home/escaper/my_cpu/riscv/riscv_cpu_tb.v
+/home/escaper/my_cpu/riscv/stat.v
+/home/escaper/my_cpu/riscv/write_back.v

@@ -1,0 +1,10 @@
+data_memory.v
+decode.v
+execute.v
+fetch.v
+memory_access.v
+pc_update.v
+riscv_cpu.v
+riscv_cpu_tb.v
+stat.v
+write_back.v
