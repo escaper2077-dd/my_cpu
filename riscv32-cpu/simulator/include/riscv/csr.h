@@ -1,0 +1,24 @@
+#ifndef __CSR_H__
+#define __CSR_H__
+enum csr_id{
+    //u_mode
+    cycle = 0xc00, timer = 0xc01, instret = 0xc02,
+    //s_mode
+    sstatus = 0x100, sie = 0x104, stvec = 0x105, scounteren = 0x106,
+    sscratch = 0x140, sepc = 0x141, scause = 0x142, stval = 0x143, sip = 0x144,
+    satp = 0x180,
+    //m_mode
+    mvendorid = 0xf11, marchid = 0xf12, mimpid = 0xf13, mhartid = 0xf14, mconfigptr = 0xf15,
+    mstatus = 0x300, misa = 0x301, medeleg = 0x302, mideleg = 0x303, mie = 0x304, mtvec = 0x305, mcounteren = 0x306,
+    mscratch = 0x340, mepc = 0x341, mcause = 0x342, mtval = 0x343, mip = 0x344,
+    mcycle = 0xb00, minstret = 0xb02, tselect = 0x7a0, tdata1 = 0x7a1,
+
+    //pmp
+    pmpcfg0 = 0x3a0, pmpcfg1 = 0x3a1, pmpcfg2 = 0x3a2, pmpcfg3 = 0x3a3,
+    pmpaddr0 = 0x3b0, pmpaddr1 = 0x3b1, pmpaddr2 = 0x3b2, pmpaddr3 = 0x3b3,
+    pmpaddr4 = 0x3b4, pmpaddr5 = 0x3b5, pmpaddr6 = 0x3b6, pmpaddr7 = 0x3b7,
+    pmpaddr8 = 0x3b8, pmpaddr9 = 0x3b9, pmpaddr10 = 0x3ba, pmpaddr11 = 0x3bb,
+    pmpaddr12 = 0x3bc, pmpaddr13 = 0x3bd, pmpaddr14 = 0x3be, pmpaddr15 = 0x3bf
+};
+
+#endif
