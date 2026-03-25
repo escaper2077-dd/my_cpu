@@ -210,7 +210,7 @@ module decode(
             
             // 写回 valM 到 dstM
             if (dstM != 4'hF) begin
-                regfile[dstM] <= valM_i;
+                //regfile[dstM] <= valM_i;
             end
         end
     end
