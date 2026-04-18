@@ -1,0 +1,8 @@
+/home/escaper/my_cpu/riscv32-5stage-pipeline/decode_pipe.v
+/home/escaper/my_cpu/riscv32-5stage-pipeline/execute_pipe.v
+/home/escaper/my_cpu/riscv32-5stage-pipeline/fetch_pipe.v
+/home/escaper/my_cpu/riscv32-5stage-pipeline/hazard_unit.v
+/home/escaper/my_cpu/riscv32-5stage-pipeline/memory_access_pipe.v
+/home/escaper/my_cpu/riscv32-5stage-pipeline/pipeline_regs.v
+/home/escaper/my_cpu/riscv32-5stage-pipeline/top_cpu.v
+/home/escaper/my_cpu/riscv32-5stage-pipeline/write_back_pipe.v

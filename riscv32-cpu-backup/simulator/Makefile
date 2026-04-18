@@ -1,5 +1,6 @@
 TOPNAME :=top_cpu
-CPU_DIR=$(CPU_HOME)/IP/rv32-single-cycle-cpu-escaper
+#CPU_DIR=$(SIM_HOME)/../IP/rv32-single-cycle-cpu-escaper
+CPU_DIR=$(SIM_HOME)/../IP/rv32-pipeline-cpu-escaper
 SRC_DIR:=$(SIM_HOME)/src  
 
 #simulator的参数

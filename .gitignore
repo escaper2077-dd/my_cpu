@@ -1,0 +1,16 @@
+# 编译产物
+*.o
+*.so
+*.a
+*.out
+build/
+*.log
+*.vcd
+*.fst
+
+# IDE 配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

@@ -1,0 +1,8 @@
+decode_pipe.v
+execute_pipe.v
+fetch_pipe.v
+hazard_unit.v
+memory_access_pipe.v
+pipeline_regs.v
+top_cpu.v
+write_back_pipe.v

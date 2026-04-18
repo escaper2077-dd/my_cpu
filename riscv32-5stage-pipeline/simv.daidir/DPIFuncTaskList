@@ -1,0 +1,5 @@
+import_DPI dpi_instr_mem_read top_cpu
+import_DPI dpi_read_regfile top_cpu
+import_DPI dpi_read_csrfile top_cpu
+import_DPI dpi_mem_read top_cpu
+import_DPI dpi_mem_write top_cpu

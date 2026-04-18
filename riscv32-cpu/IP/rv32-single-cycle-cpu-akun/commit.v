@@ -1,3 +1,4 @@
+`include "define.v"
 module commit(
 
     input  wire [31:0] PCU_i_pc,
